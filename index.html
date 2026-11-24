@@ -116,7 +116,7 @@ html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:
 <div class="tabs"><button class="on" data-tab="chat">情境對話</button><button data-tab="exam">DELE 模擬口試</button></div>
 
 <section id="chat">
-<div class="card"><h3>情境大廳 DELE A1–A2</h3><div class="grid" id="hub" style="margin-top:8px"></div>
+<div class="card"><h3>情境大廳</h3><div class="grid" id="hub" style="margin-top:8px"></div>
 <h3 style="margin-top:14px;font-size:16px">自訂任意情境</h3>
 <div class="row gen"><input id="cin" placeholder="輸入任何情境，例如：在馬德里飯店辦入住、向醫生說肚子痛..."><button class="btn pri" id="cgen">生成情境</button></div>
 <div class="tags"><span class="tag">街頭買塔可</span><span class="tag">飯店 Check-in</span><span class="tag">藥局買感冒藥</span></div></div>
@@ -309,9 +309,9 @@ const NEWSC=[['','住宿','Casero','租屋或訂住宿，問價格與設施','Ho
 ['','工作面試','Entrevistador','面試：介紹自己、經驗與優點','Buenos días. Siéntese, por favor.','早安，請坐。',[['Me llamo Ana y soy profesora.','我叫Ana，是老師。'],['Trabajé dos años en una tienda.','我在商店工作過兩年。'],['Soy trabajador y puntual.','我勤奮又準時。']],[]],
 ['','旅遊萬用','Turista','完成旅途中的日常溝通','¡Hola! ¿Qué necesita?','嗨！您需要什麼？',[['Necesito ayuda, por favor.','我需要幫忙。'],['¿Cuánto cuesta?','多少錢？'],['¿Dónde está el baño?','廁所在哪裡？']],[]]];
 const ALL={};S.concat(NEWSC).forEach(s=>ALL[s[2]]={role:s[2],mission:s[3],es:s[4],zh:s[5],hints:s[6],mock:s[7]});
-const TPL=[['餐廳點餐','Camarero'],['看醫生','Médico'],['住宿','Casero'],['工作面試','Entrevistador'],['日常','Compañero de piso'],['興趣','Amigo'],['問路','Peatón amable'],['購物','Dependiente'],['家庭與朋友','Nuevo amigo'],['城市','Vecino'],['旅遊萬用','Turista']];
+const TPL=[['點餐','Camarero'],['就醫','Médico'],['住宿','Casero'],['面試','Entrevistador'],['日常','Compañero de piso'],['興趣','Amigo'],['問路','Peatón amable'],['購物','Dependiente'],['親友','Nuevo amigo'],['城市','Vecino'],['旅遊','Turista']];
 const KW=[[/餐|點|吃|咖啡|塔可/,0],[/醫|痛|藥|病/,1],[/租|住宿|飯店|旅館|入住|check/i,2],[/面試|求職/,3],[/日常|作息|起床/,4],[/興趣|運動|休閒/,5],[/路|地鐵|交通|車站/,6],[/買|購物|價|衣/,7],[/家|朋友|親/,8],[/城市|市區|社區/,9]];
-const tsel=document.createElement('select');tsel.id='tpl';tsel.style.cssText='padding:9px;border:1.5px solid var(--line);border-radius:10px';tsel.innerHTML='<option value="">自動判定</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');$('#cin').after(tsel);
+const tsel=document.createElement('select');tsel.id='tpl';tsel.style.cssText='padding:9px;border:1.5px solid var(--line);border-radius:10px';tsel.innerHTML='<option value="">自動</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');$('#cin').after(tsel);
 $('#cgen').onclick=()=>{const q=$('#cin').value.trim();let i=tsel.value;if(i===''){const k=KW.find(k=>k[0].test(q));i=k?k[1]:10}
  const b=ALL[TPL[i][1]];[...hub.children].forEach(c=>c.classList.remove('on'));startScen({...b,mission:b.mission+(q?'（'+q+'）':''),_u:[]});toast('已套用模板：'+TPL[i][0])};
 
@@ -613,9 +613,9 @@ function drawHub(){chips('#fcat',CAT,State.hub.category,v=>State.hub.category=v)
   b.onclick=()=>{[...hub.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');startScen({...ALL[c[1]],_u:[]})};hub.appendChild(b)})}
 drawHub();
 /* 自訂情境模板補上新場景 */
-TPL.push(['街頭買塔可','Vendedor de tacos'],['飯店入住','Recepcionista'],['藥局買藥','Farmacéutico'],['搭計程車','Taxista'],['交友聊天','Nueva amiga'],['電話訂位','Recepcionista de restaurante'],['郵局寄包裹','Empleado de correos']);
+TPL.push(['小吃','Vendedor de tacos'],['飯店','Recepcionista'],['藥局','Farmacéutico'],['搭車','Taxista'],['交友','Nueva amiga'],['訂位','Recepcionista de restaurante'],['郵局','Empleado de correos']);
 KW.unshift([/塔可|街頭/,11],[/飯店|check|旅館/i,12],[/藥局|感冒/,13],[/計程車|taxi/i,14],[/派對|交友|認識/,15],[/訂位|預約|電話/,16],[/郵局|寄|包裹/,17]);
-tsel.innerHTML='<option value="">自動判定</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');
+tsel.innerHTML='<option value="">自動</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');
 /* 考場保命句 */
 const SURV=['Perdone, ¿puede repetir, por favor?|不好意思，可以再說一次嗎？','Más despacio, por favor.|請說慢一點。','No entiendo la palabra…|我不懂這個字…','¿Cómo se dice… en español?|…西文怎麼說？','Un momento, por favor. Estoy pensando.|請等一下，我在想。','Además, …|此外…','Por ejemplo, …|例如…','Porque…|因為…','Estoy de acuerdo. / No estoy de acuerdo.|我同意／不同意','Me gustaría…|我想要…'];
 const sd=document.createElement('details');sd.className='card';sd.innerHTML='<summary>考場保命句（點一下聽發音）</summary><div class="acts" style="margin-top:8px">'+SURV.map(x=>{const p=P(x);return `<button class="btn" data-say="${esc(p[0])}" data-rate=".85" style="text-align:left">${esc(p[0])}<div class="zh">${esc(p[1])}</div></button>`}).join('')+'</div>';$('#notes').before(sd);
