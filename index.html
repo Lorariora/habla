@@ -83,7 +83,10 @@ html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:
 .sw input{width:22px!important;height:22px}.sw{min-height:44px}
 #ex1>div:first-child{gap:8px;flex-wrap:wrap}
 @media(max-width:639px){
- input,textarea,select{font-size:16px}
+ input,textarea,select{font-size:14px;padding-left:10px;padding-right:10px}
+ input::placeholder,textarea::placeholder{font-size:13px;line-height:1.4;opacity:.7}
+ #cin,#tgt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #cin::placeholder,#tgt::placeholder{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
  main{padding:10px}
  header{padding-left:12px;padding-right:12px}
  header h1{font-size:18px;line-height:1.25}header h1 small{display:block;margin-top:2px}
@@ -98,11 +101,16 @@ html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:
  .prog{gap:4px}.prog div{min-width:0;font-size:12px;padding:6px 2px}
  #ex1>div:first-child{flex-direction:column;align-items:center;text-align:center}.time{font-size:40px}
  #ex1 .row{justify-content:center}#ex1 .row .btn{flex:1 1 100%;min-height:50px;font-size:16px}
- #notes{min-height:150px;font-size:16px}
+ #notes{min-height:150px;font-size:14px}
  .b{max-width:94%}.rep,.fb{max-width:100%}
  .bar{padding-left:10px;padding-right:10px}
  .bar input[type=text]{min-height:44px}#tclr{min-height:44px;min-width:64px}
- .ir{align-items:flex-end}.ir textarea{min-height:52px;max-height:30vh;height:52px}.mic{width:56px;min-height:52px}.send{min-width:72px;min-height:52px;font-size:16px}
+ .ir{align-items:flex-end}
+ .ir textarea{min-height:52px;max-height:30vh;height:52px;font-size:14px;line-height:1.4;padding:15px 10px;white-space:nowrap;overflow:hidden;
+ }
+ .ir textarea::placeholder{font-size:13px;white-space:nowrap}
+ .mic{width:56px;min-height:52px}
+ .send{min-width:72px;min-height:52px;font-size:16px}
 }
 @media(min-width:640px) and (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}#ex1 .row{justify-content:center}}
 @media(min-width:1025px){main,.top,header .row,.bar>div{max-width:960px}.grid{grid-template-columns:repeat(5,1fr)}}
@@ -118,7 +126,7 @@ html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:
 <section id="chat">
 <div class="card"><h3>情境大廳</h3><div class="grid" id="hub" style="margin-top:8px"></div>
 <h3 style="margin-top:14px;font-size:16px">自訂任意情境</h3>
-<div class="row gen"><input id="cin" placeholder="輸入任何情境，例如：在馬德里飯店辦入住、向醫生說肚子痛..."><button class="btn pri" id="cgen">生成情境</button></div>
+<div class="row gen"><input id="cin" placeholder="輸入任何情境，例如：在馬德里飯店辦入住..."><button class="btn pri" id="cgen">生成情境</button></div>
 <div class="tags"><span class="tag">街頭買塔可</span><span class="tag">飯店 Check-in</span><span class="tag">藥局買感冒藥</span></div></div>
 <div class="mission hide" id="mission"></div>
 <div id="msgs"><div class="empty" id="empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><p><b>請先在上方選擇一個情境</b><br>選好後，對話會顯示在這裡</p></div></div>
@@ -140,7 +148,7 @@ html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:
 
 <div class="bar"><div>
 <div class="row" style="margin:0"><input type="text" id="tgt" placeholder="當前跟讀目標句（點提示卡或手動輸入；留空=自由回答）" style="flex:1"><button class="btn" id="tclr" style="padding:6px 12px">清除</button></div>
-<div class="ir"><button class="mic" id="mic" title="按一下開始說話" aria-label="麥克風"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button><textarea id="inp" placeholder="說話或輸入西文…（可再按麥克風接續補講）"></textarea><button class="send" id="send">送出</button></div>
+<div class="ir"><button class="mic" id="mic" title="按一下開始說話" aria-label="麥克風"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button><textarea id="inp" placeholder="說話或輸入西文…"></textarea><button class="send" id="send">送出</button></div>
 <div class="mut" id="stat" style="min-height:18px"></div>
 </div></div>
 <div id="modal" class="hide"><div class="card"><h3>設定</h3><p class="mut">本站完全在瀏覽器本機運行：免註冊、免費、不連任何雲端 API。</p><b>🧠 離線 AI（免 API Key、零費用）</b><p class="mut">在瀏覽器本機執行 Qwen2.5-0.5B-Instruct（約 400MB，僅首次下載，之後讀快取）。未開啟時一律使用 59 組規則引擎。</p><button class="btn aibtn" style="width:100%"></button><div class="aistat mut"></div><button class="btn pri" id="mclose" style="width:100%">完成</button></div></div>
