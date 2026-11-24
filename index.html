@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<title>Habla — 西班牙文口說練習A1–A2</title>
+<style>
+:root{--bg:#FAF8F5;--card:#fff;--text:#2C302E;--ink:#2C302E;--mut:#6B726E;--line:#E8E2D9;--sage:#5B8A72;--forest:#476F5B;--peach:#E89874;--sun:#E89874;--ok:#4C8B68;--bad:#C4574B;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,"Noto Sans TC",sans-serif;padding-bottom:170px}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style",serif;margin:0;font-weight:600}
+header{background:var(--bg);border-bottom:1px solid var(--line);padding:12px 14px;padding-top:max(12px,env(safe-area-inset-top))}
+.top,header .row{max-width:860px;margin-left:auto;margin-right:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+header h1{font-size:22px}header h1 span{color:var(--sage)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+select,input,textarea,button{font:inherit;color:inherit}
+header select,#modal input{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:7px 10px;color:var(--text);max-width:100%}
+.icb{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:7px 12px;cursor:pointer;color:var(--sage);font-weight:600}
+.icb:hover{border-color:var(--sage);color:var(--forest)}
+.icb svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.spd{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--mut)}
+.spd button{width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:99px;color:var(--sage);font-size:18px;line-height:1;cursor:pointer}
+.spd button:hover{background:var(--sage);color:#fff}.spd b{min-width:42px;text-align:center;color:var(--text)}
+.sw{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut)}
+main{max-width:860px;margin:0 auto;padding:12px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tabs button{flex:1;padding:10px;border:1.5px solid var(--sage);background:#fff;color:var(--sage);border-radius:var(--r);font-weight:700;cursor:pointer}
+.tabs button:hover{background:#EEF4F0}.tabs button.on{background:var(--sage);color:#fff}.tabs button.on:hover{background:var(--forest)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px;box-shadow:0 1px 4px #2c302e14}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.sc,.btn{border:1.5px solid var(--line);background:#fff;border-radius:var(--r);padding:9px;cursor:pointer;text-align:left}
+.sc:hover{border-color:var(--sage)}.sc.on{border-color:var(--sage);background:#EEF4F0}
+.btn{text-align:center;font-weight:600}.btn:hover{border-color:var(--sage)}
+.btn.pri{background:var(--sage);color:#fff;border-color:var(--sage)}.btn.pri:hover{background:var(--forest);border-color:var(--forest)}
+.btn.sun{background:#FCEBE2;border-color:#F3CDB9;color:#8a4a2e}
+.tag{display:inline-block;background:#FCEBE2;color:#8a4a2e;border-radius:99px;padding:3px 10px;font-size:13px;cursor:pointer;margin:2px}
+#cin{flex:1;min-width:180px;padding:9px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff}
+.mission{background:#FDF1EA;border-left:5px solid var(--peach);padding:8px 12px;border-radius:var(--r);font-size:14px;margin-bottom:10px}
+.m{margin:10px 0;display:flex;flex-direction:column}.m.u{align-items:flex-end}
+.b{max-width:88%;padding:9px 12px;border-radius:var(--r);background:#fff;border:1px solid var(--line)}
+.m.u .b{background:var(--sage);color:#fff;border:0}
+.b.ai.blur{cursor:pointer;position:relative}
+.b.blur .es,.b.blur .zh{filter:blur(7px);user-select:none}
+.b.blur::after{content:"先聽，點一下看文字";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mut)}
+.es{font-size:17px}.zh{color:var(--mut);font-size:13px;margin-top:2px}
+.w{cursor:pointer;border-bottom:1px dotted #b9b2a6}
+.acts{margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}
+.acts button,.rep button,.fb button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:3px 11px;font-size:13px;cursor:pointer;color:var(--text)}
+.acts button:hover,.rep button:hover,.fb button:hover{border-color:var(--sage);color:var(--forest)}
+.rep{background:#fff;color:var(--text);border:1.5px solid var(--line);border-radius:var(--r);padding:8px 10px;margin-bottom:4px;max-width:92%}
+.g{color:var(--ok);font-weight:800}.r{background:#F8E3DF;color:var(--bad);text-decoration:line-through;border-radius:4px;padding:0 3px}
+.mut{color:var(--mut);font-size:13px}
+.fb{background:#EEF4F0;border:1px solid #CFE2D6;border-radius:var(--r);padding:8px 10px;margin-top:4px;max-width:92%;font-size:14px}
+.fb.imp{background:#FDF1EA;border-color:#F3CDB9}
+.hint{background:#fff;border:1.5px dashed var(--peach);border-radius:var(--r);padding:7px 10px;margin:4px 0;cursor:pointer}
+.bulb{border:0;background:var(--peach);color:var(--text);border-radius:99px;padding:6px 14px;font-weight:700;cursor:pointer}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 14px #2c302e14;z-index:5}
+.bar>div{max-width:860px;margin:0 auto}
+.bar input[type=text],.bar textarea{width:100%;border:1.5px solid var(--line);border-radius:var(--r);padding:8px;background:#fff}
+.bar textarea{resize:none;height:44px}
+.ir{display:flex;gap:8px;margin-top:6px;align-items:stretch}.ir textarea{flex:1}
+.mic{width:54px;border:0;border-radius:var(--r);background:var(--sage);color:#fff;font-size:22px;cursor:pointer}
+.mic:hover{background:var(--forest)}.mic.on{background:var(--bad);animation:p 1s infinite}@keyframes p{50%{opacity:.6}}
+.send{border:0;background:var(--sage);color:#fff;border-radius:var(--r);padding:0 18px;font-weight:700;cursor:pointer}.send:hover{background:var(--forest)}
+.prog{display:flex;gap:6px;margin:8px 0}.prog div{flex:1;text-align:center;padding:6px;border-radius:var(--r);background:#EFEAE2;font-weight:700;font-size:13px}.prog .on{background:var(--sage);color:#fff}.prog .done{background:var(--ok);color:#fff}
+.time{font:700 24px Georgia,serif}
+.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:4px}.mic .ic{width:24px;height:24px;margin:0;vertical-align:middle}.hide{display:none!important}
+#toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:8px 16px;border-radius:99px;z-index:30;opacity:0;transition:.3s;pointer-events:none;max-width:90%;text-align:center}
+#toast.on{opacity:1}
+#modal{position:fixed;inset:0;background:#2c302e66;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}
+#modal .card{width:100%;max-width:420px;margin:0}
+#modal label{display:block;margin-top:10px;font-weight:600}#modal input{width:100%;margin-top:4px}
+.score{font:800 34px Georgia,serif}.apto{color:var(--ok)}.noapto{color:var(--bad)}
+.dim{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px 0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* ===== RWD ===== */
+html,body{overflow-x:hidden}svg,img{max-width:100%}.card,.b,.hint{overflow-wrap:anywhere}
+.icb{min-height:44px;min-width:44px;white-space:nowrap;justify-content:center}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.empty{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--mut);padding:24px}
+.empty svg{width:64px;height:64px;stroke:#B9CFC2;fill:#EEF4F0;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px}
+.empty p{margin:0}.empty b{color:var(--text)}
+.sw input{width:22px!important;height:22px}.sw{min-height:44px}
+#ex1>div:first-child{gap:8px;flex-wrap:wrap}
+@media(max-width:639px){
+ input,textarea,select{font-size:16px}
+ main{padding:10px}
+ header{padding-left:12px;padding-right:12px}
+ header h1{font-size:18px;line-height:1.25}header h1 small{display:block;margin-top:2px}
+ header .row{gap:10px}
+ header select,header .btn{flex:1 1 100%;min-height:44px}
+ .spd{gap:10px;flex:1 1 100%;justify-content:space-between}.spd button{width:44px;height:44px;font-size:22px}.spd b{font-size:16px}
+ .tabs button{min-height:46px;font-size:14px;padding:8px 4px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .gen>*{flex:1 1 100%;width:100%;min-height:46px}
+ .tags{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}.tag{flex:0 0 auto;white-space:nowrap;padding:7px 14px}
+ #ex0 .row .btn{flex:1 1 100%;min-height:50px}
+ .prog{gap:4px}.prog div{min-width:0;font-size:12px;padding:6px 2px}
+ #ex1>div:first-child{flex-direction:column;align-items:center;text-align:center}.time{font-size:40px}
+ #ex1 .row{justify-content:center}#ex1 .row .btn{flex:1 1 100%;min-height:50px;font-size:16px}
+ #notes{min-height:150px;font-size:16px}
+ .b{max-width:94%}.rep,.fb{max-width:100%}
+ .bar{padding-left:10px;padding-right:10px}
+ .bar input[type=text]{min-height:44px}#tclr{min-height:44px;min-width:64px}
+ .ir{align-items:flex-end}.ir textarea{min-height:52px;max-height:30vh;height:52px}.mic{width:56px;min-height:52px}.send{min-width:72px;min-height:52px;font-size:16px}
+}
+@media(min-width:640px) and (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}#ex1 .row{justify-content:center}}
+@media(min-width:1025px){main,.top,header .row,.bar>div{max-width:960px}.grid{grid-template-columns:repeat(5,1fr)}}
+.tag.on{background:var(--sage);color:#fff}details.card summary{cursor:pointer;font-weight:700}.lv{font-size:11px;background:#FCEBE2;color:#8a4a2e;border-radius:99px;padding:1px 8px;margin-left:6px}.fl{margin:8px 0 4px;font-size:13px;color:var(--mut)}
+.aibar{height:8px;background:#E8E2D9;border-radius:99px;margin-top:4px;overflow:hidden}.aibar i{display:block;height:100%;background:var(--sage);transition:width .2s}.aibtn{font-size:13px;padding:4px 12px}.aibtn:disabled{opacity:.7;cursor:default}
+</style></head><body>
+<header><div class="top"><h1>Habla<span>.</span> <small style="font-weight:400;font-size:13px;color:var(--mut)">西班牙文口說練習A1–A2</small></h1><button class="icb" id="gear" aria-label="設定"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>設定</button></div>
+<div class="row"><select id="acc"><option value="es-ES">es-ES 西班牙</option><option value="es-MX">es-MX 拉丁美洲</option></select><select id="voice" title="語音聲線選擇器"><option>載入聲線…</option></select><button class="btn" id="vtest" style="padding:6px 12px">試聽</button></div>
+<div class="row"><div class="spd">語速<button id="sm" aria-label="減慢">−</button><b id="sv">1.0x</b><button id="sp" aria-label="加快">+</button></div><label class="sw"><input type="checkbox" id="hf" style="width:auto"> 對談模式（允許插話）</label></div></header>
+<main>
+<div class="tabs"><button class="on" data-tab="chat">情境對話</button><button data-tab="exam">DELE 模擬口試</button></div>
+
+<section id="chat">
+<div class="card"><h3>情境大廳 DELE A1–A2</h3><div class="grid" id="hub" style="margin-top:8px"></div>
+<h3 style="margin-top:14px;font-size:16px">自訂任意情境</h3>
+<div class="row gen"><input id="cin" placeholder="輸入任何情境，例如：在馬德里飯店辦入住、向醫生說肚子痛..."><button class="btn pri" id="cgen">生成情境</button></div>
+<div class="tags"><span class="tag">街頭買塔可</span><span class="tag">飯店 Check-in</span><span class="tag">藥局買感冒藥</span></div></div>
+<div class="mission hide" id="mission"></div>
+<div id="msgs"><div class="empty" id="empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><p><b>請先在上方選擇一個情境</b><br>選好後，對話會顯示在這裡</p></div></div>
+</section>
+
+<section id="exam" class="hide">
+<div class="card" id="ex0"><h3>報考級別</h3>
+<div class="row"><button class="btn pri" data-lvl="A1">DELE A1</button><button class="btn pri" data-lvl="A2">DELE A2</button></div>
+<p class="mut">考前準備室：抽題後有準備時間（A1 約 10 分鐘、A2 12 分鐘），可寫大綱草稿（正式考試不能照稿唸）。</p></div>
+<div class="card hide" id="ex1"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="exT">準備室</h3><div class="time" id="ptime">10:00</div></div>
+<div id="tasks"></div>
+<textarea id="notes" rows="4" placeholder="考前草稿筆記（只寫關鍵字與大綱）" style="width:100%;margin-top:8px;border:1.5px solid var(--line);border-radius:10px;padding:8px"></textarea>
+<div class="row"><button class="btn pri" id="enter">直接進入考場</button><button class="btn" id="redraw">重新抽題</button></div></div>
+<div class="hide" id="ex2"><div class="prog" id="prog"><div>Tarea 1/3</div><div>Tarea 2/3</div><div>Tarea 3/3</div></div>
+<div class="mut">本題用時：<b id="ttime">00:00</b>　｜　總剩餘：<b id="tot"></b>（A1 10 分／A2 12 分，到時僅提醒）</div><div id="emsgs"></div></div>
+<div class="card hide" id="ex3"></div>
+</section>
+</main>
+
+<div class="bar"><div>
+<div class="row" style="margin:0"><input type="text" id="tgt" placeholder="當前跟讀目標句（點提示卡或手動輸入；留空=自由回答）" style="flex:1"><button class="btn" id="tclr" style="padding:6px 12px">清除</button></div>
+<div class="ir"><button class="mic" id="mic" title="按一下開始說話" aria-label="麥克風"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button><textarea id="inp" placeholder="說話或輸入西文…（可再按麥克風接續補講）"></textarea><button class="send" id="send">送出</button></div>
+<div class="mut" id="stat" style="min-height:18px"></div>
+</div></div>
+<div id="modal" class="hide"><div class="card"><h3>設定</h3><p class="mut">本站完全在瀏覽器本機運行：免註冊、免費、不連任何雲端 API。</p><b>🧠 離線 AI（免 API Key、零費用）</b><p class="mut">在瀏覽器本機執行 Qwen2.5-0.5B-Instruct（約 400MB，僅首次下載，之後讀快取）。未開啟時一律使用 59 組規則引擎。</p><button class="btn aibtn" style="width:100%"></button><div class="aistat mut"></div><button class="btn pri" id="mclose" style="width:100%">完成</button></div></div>
+<div id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const IC={mic:`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>`,spk:`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let spd=1,accent='es-ES',voices=[],curVoice=null,target='',mode='chat',busy=false,rec=null,listening=false,sid=0,hf=false;
+let scen=null,hist=[],turns=0,ex=null;
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2200)}
+
+/* ===== 語音合成 ===== */
+function loadVoices(){const all=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang));
+ const sc=v=>{let s=0,n=v.name;if(/premium|enhanced|natural|neural|online/i.test(n))s+=5;if(/google/i.test(n))s+=3;if(/m[oó]nica|paulina|jorge|diego|luc[ií]a|marisol|sabina|juan|elvira|dalia|siri/i.test(n))s+=3;if(/compact|espeak/i.test(n))s-=6;if(v.localService===false)s+=1;if(v.lang.replace('_','-')===accent)s+=4;return s};
+ voices=all.sort((a,b)=>sc(b)-sc(a));const sel=$('#voice');
+ sel.innerHTML=voices.length?voices.map((v,i)=>`<option value="${i}">${esc(v.name)} (${v.lang})</option>`).join(''):'<option>找不到西文語音（使用系統預設）</option>';
+ curVoice=voices[0]||null}
+loadVoices();speechSynthesis.onvoiceschanged=loadVoices;
+$('#voice').onchange=e=>{curVoice=voices[e.target.value]};
+$('#acc').onchange=e=>{accent=e.target.value;loadVoices()};
+$('#vtest').onclick=()=>speak('Hola, ¿cómo estás? Me llamo Lucía.',.85);
+function speak(text,rate=.85,done,lang){speechSynthesis.cancel();const id=++sid,u=new SpeechSynthesisUtterance(text);u.lang=lang||accent;u.rate=Math.min(2,rate*spd);if(!lang&&curVoice){u.voice=curVoice;u.lang=curVoice.lang}
+ u.onend=u.onerror=()=>{if(id===sid&&done)done()};speechSynthesis.speak(u)}
+function speakAI(t){speak(t,.85,()=>{if(hf&&!busy)listen()})}
+
+/* ===== 語音辨識 ===== */
+function listen(){if(!SR)return toast('此瀏覽器不支援語音辨識（建議 Chrome / Safari）');
+ try{rec&&rec.abort()}catch(e){}
+ rec=new SR();rec.lang=accent;rec.interimResults=true;rec.continuous=false;let fin='';
+ rec.onstart=()=>{listening=true;$('#mic').classList.add('on');$('#stat').textContent='聆聽中…'};
+ rec.onresult=e=>{let t='';for(const r of e.results)t+=r[0].transcript;fin=t;$('#stat').textContent=''+t};
+ rec.onerror=e=>{$('#stat').textContent=e.error==='not-allowed'?'請允許麥克風權限':''};
+ rec.onend=()=>{listening=false;$('#mic').classList.remove('on');$('#stat').textContent='';if(fin.trim())onSpeech(fin.trim());else if(hf&&!busy&&!speechSynthesis.speaking)setTimeout(()=>{if(hf&&!listening&&!busy)listen()},600)};
+ try{rec.start()}catch(e){}}
+$('#mic').onclick=()=>{if(listening){rec.stop();return}speechSynthesis.cancel();sid++;listen()};
+function onSpeech(t){try{const inp=$('#inp');
+ if(mode==='chat'&&target){inp.value=t;submit();return}
+ if(hf){inp.value=t;submit();return}
+ inp.value=(inp.value?inp.value+' ':'')+t}finally{grow()}}  // 不自動送出，可補講
+$('#tgt').oninput=e=>target=e.target.value.trim();
+$('#tclr').onclick=()=>setTarget('');
+function setTarget(t){target=t;$('#tgt').value=t}
+
+/* ===== 電話模式：音量偵測與插話 ===== */
+let actx,stream,mon;
+$('#hf').onchange=async e=>{hf=e.target.checked;
+ if(hf){try{stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});actx=new (window.AudioContext||window.webkitAudioContext)();const an=actx.createAnalyser();an.fftSize=1024;actx.createMediaStreamSource(stream).connect(an);const buf=new Uint8Array(an.fftSize);let acc=0;
+  mon=setInterval(()=>{an.getByteTimeDomainData(buf);let s=0;for(const v of buf){const x=(v-128)/128;s+=x*x}const rms=Math.sqrt(s/buf.length);
+   if(speechSynthesis.speaking&&rms>.06){acc+=50;if(acc>=200){acc=0;sid++;speechSynthesis.cancel();listen();toast('偵測到插話')}}else acc=0},50);
+  toast('電話模式開啟');if(!speechSynthesis.speaking&&!busy)listen()}catch(err){hf=false;e.target.checked=false;toast('無法使用麥克風')}}
+ else{clearInterval(mon);stream&&stream.getTracks().forEach(t=>t.stop());actx&&actx.close();try{rec&&rec.abort()}catch(e){}}};
+
+/* ===== 逐字發音比對 ===== */
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[¿?¡!.,;:"]/g,'').replace(/\s+/g,' ').trim();
+function diff(tg,heard){const T=tg.trim().split(/\s+/).filter(Boolean),tn=T.map(norm),H=norm(heard).split(' ').filter(Boolean),n=T.length,m=H.length;
+ const d=Array.from({length:n+1},()=>Array(m+1).fill(0));
+ for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)d[i][j]=tn[i]===H[j]?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
+ const ok=Array(n).fill(false),used=Array(m).fill(false);let i=0,j=0;
+ while(i<n&&j<m){if(tn[i]===H[j]){ok[i]=used[j]=true;i++;j++}else if(d[i+1][j]>=d[i][j+1])i++;else j++}
+ const good=ok.filter(Boolean).length;
+ return{pct:n?Math.round(good/n*100):0,html:T.map((w,k)=>ok[k]?`<span class="g">${esc(w)}</span>`:`<span class="r">${esc(w)}</span>`).join(' '),miss:good<n,heard:H.filter((_,k)=>!used[k]).join(' ')||'（沒聽到）'}}
+
+/* ===== 情境資料 ===== */
+const S=[
+['','個人介紹','Compañero de clase','說出姓名、國籍、職業','¡Hola! ¿Cómo te llamas?','嗨！你叫什麼名字？',[['Me llamo Ana.','我叫 Ana。'],['Soy de Taiwán.','我來自台灣。'],['Soy estudiante.','我是學生。']],[['Mucho gusto. ¿De dónde eres?','幸會。你來自哪裡？'],['¿Y qué haces? ¿Trabajas?','那你做什麼？有工作嗎？']]],
+['','家庭與朋友','Nuevo amigo','介紹家人與寵物','¿Tienes hermanos?','你有兄弟姊妹嗎？',[['Tengo una hermana.','我有一個姐姐／妹妹。'],['No tengo hermanos.','我沒有兄弟姊妹。'],['Tengo un perro.','我有一隻狗。']],[['¡Qué bien! ¿Cómo es tu hermana?','真好！她是怎樣的人？'],['¿Tienes mascotas? ¿Cómo se llama?','你有寵物嗎？叫什麼？']]],
+['','居家與城市','Vecino','描述房間與居住環境','¿Dónde vives?','你住哪裡？',[['Vivo en un apartamento.','我住公寓。'],['Mi casa tiene dos cuartos.','我家有兩間房。'],['Vivo en Kaohsiung.','我住高雄。']],[['¿Cómo es tu casa? ¿Es grande?','你家怎樣？大嗎？'],['¿Hay un parque cerca?','附近有公園嗎？']]],
+['⏰','日常作息','Compañero de piso','說出起床時間與日常習慣','¿A qué hora te levantas?','你幾點起床？',[['Me levanto a las siete.','我七點起床。'],['Desayuno en casa.','我在家吃早餐。'],['Trabajo por la mañana.','我早上工作。']],[['¿Y qué haces por la tarde?','那你下午做什麼？'],['¿A qué hora te acuestas?','你幾點睡覺？']]],
+['','興趣與休閒','Amigo','談週末活動與喜好','¿Qué haces el fin de semana?','你週末做什麼？',[['Me gusta jugar al fútbol.','我喜歡踢足球。'],['Voy a ver una película.','我要去看電影。'],['Escucho música.','我聽音樂。']],[['¡Qué interesante! ¿Con quién juegas?','好有趣！你和誰玩？'],['¿Qué película vas a ver?','你要看哪部電影？']]],
+['','飲食與點餐','Camarero','在咖啡廳點餐','Buenas tardes. ¿Qué desea tomar?','午安，您想喝什麼？',[['Quiero un café con leche.','我要一杯拿鐵。'],['Quiero un bocadillo, por favor.','我要一個三明治。'],['La cuenta, por favor.','請結帳。']],[['Muy bien. ¿Quiere comer algo?','好的。要吃點什麼嗎？'],['Son cuatro euros. ¿Algo más?','四歐元。還要別的嗎？']]],
+['','商店購物','Dependiente','問價格、顏色與尺寸','Hola. ¿Puedo ayudarle?','您好，需要幫忙嗎？',[['¿Cuánto cuesta la camiseta?','這件T恤多少錢？'],['Busco una talla M.','我找M號。'],['¿La tiene en azul?','這件有藍色嗎？']],[['Cuesta quince euros. ¿Le gusta?','十五歐元。喜歡嗎？'],['Sí, la tenemos en rojo y azul.','有，有紅色和藍色。']]],
+['','交通與問路','Peatón amable','問路與搭地鐵','Hola, ¿necesita ayuda?','你好，需要幫忙嗎？',[['¿Dónde está el metro?','地鐵在哪裡？'],['¿Cómo llego a la plaza?','怎麼去廣場？'],['Gracias, ¡adiós!','謝謝，再見！']],[['Siga todo recto y gire a la derecha.','直走然後右轉。'],['Está a cinco minutos andando.','走路五分鐘。']]],
+['','健康與身體','Médico','看醫生並描述哪裡痛','Buenos días. ¿Qué le pasa?','早安，您怎麼了？',[['Me duele la cabeza.','我頭痛。'],['Me duele el estómago.','我肚子痛。'],['Tengo fiebre.','我發燒。']],[['¿Desde cuándo le duele?','痛多久了？'],['Descanse y beba mucha agua.','請多休息、多喝水。']]],
+['','工作學習與天氣','Colega','談學校、工作與天氣','Hola. ¿Qué tiempo hace hoy?','嗨，今天天氣如何？',[['Hace sol y mucho calor.','出太陽，很熱。'],['Trabajo en una oficina.','我在辦公室工作。'],['Estudio español.','我學西班牙文。']],[['¿Y dónde trabajas o estudias?','你在哪工作或念書？'],['¿Te gusta tu trabajo?','你喜歡你的工作嗎？']]]];
+const hub=$('#hub');S.forEach((s,i)=>{const b=document.createElement('button');b.className='sc';b.innerHTML=`<b>${s[1]}</b><div class="mut">${s[3]}</div>`;b.onclick=()=>{[...hub.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');startScen({role:s[2],mission:s[3],es:s[4],zh:s[5],hints:s[6],mock:s[7]})};hub.appendChild(b)});
+
+function startScen(sc){$('#mission').classList.remove('hide');scen=sc;hist=[];turns=0;$('#msgs').innerHTML='';setTarget('');
+ $('#mission').innerHTML=`<b>任務（${esc(sc.role)}）</b>：${esc(sc.mission)}　<span id="badge" class="mut">0/3 輪</span>`;
+ addAI($('#msgs'),sc.es,sc.zh,true);speakAI(sc.es);addBulb(sc.hints.map(h=>({es:h[0],zh:h[1]})))}
+
+/* ===== 自訂情境 ===== */
+document.querySelectorAll('.tag').forEach(t=>t.onclick=()=>$('#cin').value=t.textContent.trim());
+
+/* ===== 氣泡渲染 ===== */
+const tok=t=>esc(t).replace(/[A-Za-zÁÉÍÓÚÑÜáéíóúñü]+/g,w=>`<span class="w">${w}</span>`);
+function addAI(box,es,zh,blur=true){const d=document.createElement('div');d.className='m';
+ d.innerHTML=`<div class="b ai${blur?' blur':''}"><div class="es">${tok(es)}</div><div class="zh">${esc(zh)}</div></div><div class="acts"><button data-say="${esc(es)}" data-rate=".85">${IC.spk}正常語速 (0.85x)</button><button data-say="${esc(es)}" data-rate=".6">${IC.spk}慢速拆音 (0.6x)</button></div>`;
+ box.appendChild(d);scrollEnd();return d}
+function scrollEnd(){window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+function addUser(box,text,tg){const d=document.createElement('div');d.className='m u';let h='';
+ if(tg){const r=diff(tg,text);h=`<div class="rep"><b>發音檢測報告</b>　準確率 <b>${r.pct}%</b><div class="es">${r.html}</div>${r.miss?`<div class="mut">實際聽成：${esc(r.heard)}</div>`:''}<div class="acts"><button data-say="${esc(tg)}" data-rate=".85">${IC.spk}再次播放</button><button data-tgt="${esc(tg)}">重新跟讀</button></div></div>`}
+ d.innerHTML=h+`<div class="b">${esc(text)}</div>`;box.appendChild(d);scrollEnd();
+ if(box.id==='msgs'&&text.trim()){const a=document.createElement('div');a.className='acts';a.innerHTML='<button class="upbtn">升級說法</button>';d.appendChild(a);
+  a.firstChild.onclick=()=>{const n=a.nextElementSibling;if(n&&n.classList.contains('upp')){n.remove();return}const p=document.createElement('div');p.className='fb upp';p.innerHTML='<div class="mut">升級中…</div>';a.after(p);scrollEnd();upHTMLX(text).then(h=>{p.innerHTML=h;AI.btn();AI.ui(AI.msg,AI.pct);scrollEnd()})}}
+ return d}
+function addBulb(list){document.querySelectorAll('.bulbrow').forEach(e=>e.remove());const d=document.createElement('div');d.className='bulbrow';
+ d.innerHTML='<button class="bulb">靈感燈泡</button><div class="hs hide"></div>';const hs=d.querySelector('.hs');
+ hs.innerHTML=list.map(h=>`<div class="hint" data-hint="${esc(h.es)}"><div class="es">${esc(h.es)}</div><div class="zh">${esc(h.zh)}</div></div>`).join('');
+ d.querySelector('.bulb').onclick=()=>hs.classList.toggle('hide');$('#msgs').appendChild(d);scrollEnd()}
+function addFb(d,r){const f=document.createElement('div');f.className='fb'+(r.correction_status==='perfect'?'':' imp');
+ f.innerHTML=`<b>${r.correction_status==='perfect'?'很道地！':'可以更自然'}</b><div class="es">${esc(r.better_expression)}</div><div class="acts"><button data-say="${esc(r.better_expression)}" data-rate=".85">${IC.spk}聽修正句</button><button data-tgt="${esc(r.better_expression)}">${IC.mic}跟讀修正句</button></div><div style="margin-top:4px">${esc(r.tutor_feedback)}</div>`;d.appendChild(f)}
+
+/* ===== 全域點擊 ===== */
+document.addEventListener('click',e=>{const t=e.target;
+ const bl=t.closest('.b.blur');if(bl){bl.classList.remove('blur');return}
+ const w=t.closest('.w');if(w){lookup(w.textContent);return}
+ const s=t.closest('[data-say]');if(s){speak(s.dataset.say,+s.dataset.rate);return}
+ const g=t.closest('[data-tgt]');if(g){setTarget(g.dataset.tgt);speak(g.dataset.tgt,.85);toast('已設為跟讀目標，按麥克風跟讀');return}
+ const h=t.closest('[data-hint]');if(h){setTarget(h.dataset.hint);speak(h.dataset.hint,.85);toast('已鎖定跟讀目標句')}});
+
+/* ===== 點字查詞 ===== */
+const DICT={hola:'你好|感嘆詞|—',quiero:'我想要|動詞|querer',tengo:'我有|動詞|tener',soy:'我是|動詞|ser',vivo:'我住|動詞|vivir',llamo:'我叫|動詞|llamarse',gusta:'喜歡|動詞|gustar',café:'咖啡|名詞(陽)|—',leche:'牛奶|名詞(陰)|—',casa:'房子|名詞(陰)|—',perro:'狗|名詞(陽)|—',camiseta:'T恤|名詞(陰)|—',dónde:'哪裡|疑問副詞|—',cómo:'如何|疑問副詞|—',qué:'什麼|疑問詞|—',tiene:'你/他有|動詞|tener',hace:'做/天氣如何|動詞|hacer',desea:'想要|動詞|desear',puedo:'我可以|動詞|poder',duele:'疼痛|動詞|doler',cuesta:'價格是|動詞|costar',eres:'你是|動詞|ser',tomar:'喝/拿|動詞原形|tomar',ayudarle:'幫助您|動詞+代名詞|ayudar',gracias:'謝謝|名詞/感嘆|—',por:'為了/藉由|介系詞|—',favor:'恩惠(por favor=請)|名詞(陽)|—',un:'一個|冠詞(陽)|—',una:'一個|冠詞(陰)|—',con:'和/帶有|介系詞|—',tú:'你|代名詞|—',mi:'我的|所有格|—',en:'在|介系詞|—',de:'的/從|介系詞|—',y:'和|連接詞|—'};
+async function lookup(w){const k=w.toLowerCase(),r=DICT[k]||NDICT[norm(w)];if(!r){toast(w+'：離線字典沒有此字');return speak(w,.7)}
+ const[zh,pos,lem,ex]=r.split('|');toast(`${w} ＝ ${zh}（${pos}${lem&&lem!=='—'?'，原形：'+lem:''}）${ex?'｜'+ex:''}`);
+ speak(w,.7,()=>speak(`${zh}，詞性${pos}${lem&&lem!=='—'?'，原形'+lem:''}`,1,()=>{if(ex)speak(ex,.8)},'zh-TW'))}
+
+/* ===== 送出 ===== */
+$('#send').onclick=submit;
+function submit(){const t=$('#inp').value.trim();if(!t||busy)return;$('#inp').value='';try{rec&&rec.abort()}catch(e){}mode==='chat'?sendChat(t):sendExam(t)}
+const cap=s=>{let r=s.trim();r=r.charAt(0).toUpperCase()+r.slice(1);if(!/[.!?]$/.test(r))r+=/^(qu[eé]|c[oó]mo|d[oó]nde|cu[aá]nt|cu[aá]l|cu[aá]ndo|ad[oó]nde)/i.test(r)?'?':'.';if(r.endsWith('?')&&!r.includes('¿'))r='¿'+r;return r};
+
+async function sendChat(text){if(!scen)return toast('請先選擇情境');busy=true;const tg=target;setTarget('');
+ const box=$('#msgs'),ub=addUser(box,text,tg);document.querySelectorAll('.bulbrow').forEach(e=>e.remove());
+ const ty=document.createElement('div');ty.className='mut';ty.textContent='AI 思考中…';box.appendChild(ty);
+ let r;try{if(AI.ready)r=await aiChat(text);else r=mock(text)}catch(e){r=mock(text)}
+ ty.remove();hist.push({role:'user',content:text},{role:'assistant',content:r.ai_reply});turns++;addFb(ub,r);addAI(box,r.ai_reply,r.ai_translation,true);
+ if(turns>=3&&scen){$('#badge').textContent='任務達成！';if(turns===3){toast('任務達成徽章！')}}else $('#badge').textContent=turns+'/3 輪';
+ addBulb(r.suggested_replies||[]);busy=false;speakAI(r.ai_reply)}
+
+/* ===== 分頁 ===== */
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));mode=b.dataset.tab;$('#chat').classList.toggle('hide',mode!=='chat');$('#exam').classList.toggle('hide',mode!=='exam');speechSynthesis.cancel();sid++});
+
+/* ===== DELE 口試室 ===== */
+const rnd=a=>a[Math.floor(Math.random()*a.length)],fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+document.querySelectorAll('[data-lvl]').forEach(b=>b.onclick=()=>{ex={lvl:b.dataset.lvl,turn:0,tr:[],sec:600,ts:0};draw()});
+
+
+
+/* ===== 離線引擎 v2：對話庫／評分／模板／字典 ===== */
+const B=s=>new RegExp('(?<![a-záéíóúñü])(?:'+s+')(?![a-záéíóúñü])','i'),has=(t,c)=>B(c).test(t),cl=x=>Math.max(0,Math.min(1,x)),r1=x=>Math.round(x*10)/10;
+const DLG={
+'Compañero de clase':['¿Cuántos años tienes?|你幾歲？','¿Qué estudias o en qué trabajas?|你念什麼或做什麼工作？','¿Hablas otros idiomas?|你還會說其他語言嗎？','¿Por qué estudias español?|你為什麼學西文？','¿Qué haces en tu tiempo libre?|你空閒時做什麼？','¿Cómo se llama tu ciudad? ¿Te gusta?|你的城市叫什麼？喜歡嗎？'],
+'Nuevo amigo':['¿Cómo se llama tu madre y qué hace?|你媽媽叫什麼、做什麼工作？','¿Vives con tu familia?|你和家人同住嗎？','¿Quién es tu mejor amigo? ¿Cómo es?|你最好的朋友是誰？他怎樣？','¿Qué haces con tus amigos los domingos?|週日你和朋友做什麼？','¿Tu familia es grande o pequeña?|你的家庭大還是小？','¿Cuándo es el cumpleaños de tu hermana?|你姐姐生日是什麼時候？'],
+'Vecino':['¿Cuántas habitaciones tiene tu casa?|你家有幾間房？','¿Tienes balcón o jardín?|你有陽台或花園嗎？','¿Qué hay en tu barrio?|你住的區域有什麼？','¿Vives solo o con alguien?|你一個人住還是和別人？','¿Prefieres vivir en la ciudad o en el campo?|你比較喜歡住城市還是鄉下？','¿Hay un supermercado cerca de tu casa?|你家附近有超市嗎？'],
+'Compañero de piso':['¿Qué desayunas normalmente?|你平常吃什麼早餐？','¿Cómo vas al trabajo?|你怎麼去上班？','¿A qué hora comes?|你幾點吃午餐？','¿Qué haces después de cenar?|晚餐後你做什麼？','¿Te duchas por la mañana o por la noche?|你早上還是晚上洗澡？','¿Qué hiciste ayer por la tarde?|昨天下午你做了什麼？'],
+'Amigo':['¿Practicas algún deporte?|你有做什麼運動嗎？','¿Qué música te gusta?|你喜歡什麼音樂？','¿Qué hiciste el sábado pasado?|上週六你做了什麼？','¿Vamos a ir al cine el domingo?|週日我們去看電影好嗎？','¿Prefieres leer o ver series?|你比較愛看書還是追劇？','¿Adónde vas a viajar en vacaciones?|假期你要去哪裡旅行？'],
+'Camarero':['¿Prefiere carne o pescado?|您要肉還是魚？','¿Quiere postre? Tenemos tarta y helado.|要甜點嗎？有蛋糕和冰淇淋。','¿Para beber, agua o vino?|喝的要水還是酒？','Aquí tiene el menú. ¿Se lo traigo?|這是菜單，我拿給您好嗎？','¿Está todo bien? ¿Le traigo algo más?|一切都好嗎？再給您什麼嗎？','¿Paga en efectivo o con tarjeta?|現金還是刷卡？'],
+'Dependiente':['¿Qué talla usa normalmente?|您通常穿什麼尺寸？','¿Quiere probárselo? El probador está allí.|要試穿嗎？試衣間在那邊。','Hoy tenemos un descuento del veinte por ciento.|今天打八折。','¿Es un regalo? ¿Se lo envuelvo?|是禮物嗎？要幫您包起來嗎？','¿Prefiere pagar en efectivo o con tarjeta?|現金還是刷卡？','¿Le gusta este color o prefiere otro?|喜歡這個顏色還是想要別的？'],
+'Peatón amable':['¿Va andando o en autobús?|您走路還是搭公車？','Hay una farmacia al lado del banco.|銀行旁邊有藥局。','Cruce la calle y siga hasta el semáforo.|過馬路直走到紅綠燈。','¿Busca una estación de metro o una parada de autobús?|您找地鐵站還是公車站？','Está lejos. Es mejor coger el metro.|很遠，搭地鐵比較好。','¿Es usted turista? ¿De dónde es?|您是遊客嗎？來自哪裡？'],
+'Médico':['¿Tiene tos o dolor de garganta?|您咳嗽或喉嚨痛嗎？','¿Ha tomado alguna medicina?|您吃過藥嗎？','¿Es alérgico a algún medicamento?|您對藥物過敏嗎？','Tome una pastilla cada ocho horas.|每八小時吃一顆藥。','¿Cómo durmió anoche?|您昨晚睡得如何？','Vuelva en tres días si sigue mal.|如果還沒好，三天後回診。'],
+'Colega':['¿Cuántas horas trabajas al día?|你一天工作幾小時？','¿Qué estudiaste en la universidad?|你大學念什麼？','Mañana va a llover. ¿Tienes paraguas?|明天會下雨，你有傘嗎？','¿Qué te gusta de tu trabajo?|你喜歡工作的哪裡？','¿Qué tiempo hace en tu ciudad en invierno?|你的城市冬天天氣如何？','¿Tienes una reunión esta tarde?|你今天下午有會議嗎？'],
+'Casero':['El alquiler es de seiscientos euros al mes.|租金一個月六百歐元。','¿Cuántas personas van a vivir?|有幾個人要住？','El piso tiene dos habitaciones y un baño.|公寓有兩房一衛。','¿Cuándo quiere entrar a vivir?|您想什麼時候入住？','Los gastos no están incluidos.|水電費不包含。','¿Quiere ver el piso mañana por la tarde?|想明天下午看房嗎？'],
+'Entrevistador':['¿Por qué quiere trabajar aquí?|您為何想在這裡工作？','¿Qué experiencia tiene?|您有什麼經驗？','¿Cuáles son sus puntos fuertes?|您的優點是什麼？','¿Puede trabajar los fines de semana?|週末可以上班嗎？','¿Qué estudió?|您學什麼的？','¿Cuándo puede empezar?|您什麼時候可以開始？'],
+'Turista':['¿De dónde es usted?|您來自哪裡？','¿Cuántos días va a estar aquí?|您會待幾天？','¿Quiere un mapa de la ciudad?|要一張城市地圖嗎？','Le recomiendo visitar el museo.|我建議您參觀博物館。','¿Necesita un taxi o prefiere andar?|您需要計程車還是想走路？']};
+const NEWSC=[['','住宿','Casero','租屋或訂住宿，問價格與設施','Hola. ¿Busca piso?','你好，在找房子嗎？',[['¿Cuánto cuesta al mes?','每月多少錢？'],['¿Tiene wifi y aire acondicionado?','有網路和冷氣嗎？'],['Quiero una habitación para tres noches.','我要訂三晚的房間。']],[]],
+['','工作面試','Entrevistador','面試：介紹自己、經驗與優點','Buenos días. Siéntese, por favor.','早安，請坐。',[['Me llamo Ana y soy profesora.','我叫Ana，是老師。'],['Trabajé dos años en una tienda.','我在商店工作過兩年。'],['Soy trabajador y puntual.','我勤奮又準時。']],[]],
+['','旅遊萬用','Turista','完成旅途中的日常溝通','¡Hola! ¿Qué necesita?','嗨！您需要什麼？',[['Necesito ayuda, por favor.','我需要幫忙。'],['¿Cuánto cuesta?','多少錢？'],['¿Dónde está el baño?','廁所在哪裡？']],[]]];
+const ALL={};S.concat(NEWSC).forEach(s=>ALL[s[2]]={role:s[2],mission:s[3],es:s[4],zh:s[5],hints:s[6],mock:s[7]});
+const TPL=[['餐廳點餐','Camarero'],['看醫生','Médico'],['住宿','Casero'],['工作面試','Entrevistador'],['日常','Compañero de piso'],['興趣','Amigo'],['問路','Peatón amable'],['購物','Dependiente'],['家庭與朋友','Nuevo amigo'],['城市','Vecino'],['旅遊萬用','Turista']];
+const KW=[[/餐|點|吃|咖啡|塔可/,0],[/醫|痛|藥|病/,1],[/租|住宿|飯店|旅館|入住|check/i,2],[/面試|求職/,3],[/日常|作息|起床/,4],[/興趣|運動|休閒/,5],[/路|地鐵|交通|車站/,6],[/買|購物|價|衣/,7],[/家|朋友|親/,8],[/城市|市區|社區/,9]];
+const tsel=document.createElement('select');tsel.id='tpl';tsel.style.cssText='padding:9px;border:1.5px solid var(--line);border-radius:10px';tsel.innerHTML='<option value="">自動判定</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');$('#cin').after(tsel);
+$('#cgen').onclick=()=>{const q=$('#cin').value.trim();let i=tsel.value;if(i===''){const k=KW.find(k=>k[0].test(q));i=k?k[1]:10}
+ const b=ALL[TPL[i][1]];[...hub.children].forEach(c=>c.classList.remove('on'));startScen({...b,mission:b.mission+(q?'（'+q+'）':''),_u:[]});toast('已套用模板：'+TPL[i][0])};
+
+/* --- 文法規則庫 --- */
+const FILL=/(?<![a-záéíóúñü])(?:e+h+m*|u+m+|h+m+|e+m+|pues|o sea)(?![a-záéíóúñü])|(?<![a-záéíóúñü])este(?=\s*(?:,|\.{2,}|…|$))/gi;
+const CON=['porque','además','sin embargo','en mi opinión','por ejemplo','también','entonces','por eso','primero','después','luego','por último','aunque','es decir','por lo tanto','pero'];
+const ADV=['sin embargo','aunque','mientras','todavía','además','me encantaría','tener ganas de','por supuesto','de repente','a menudo','sobre todo','por lo general','en cuanto a','acabar de','hace falta','echar de menos','la verdad','poco a poco','por casualidad'];
+
+/* --- 模擬對話：追問池＋反應詞，避免重複 --- */
+const ACK={pos:[['¡Qué bien!','真好！'],['Muy bien.','很好。'],['¡Genial!','太棒了！'],['Entiendo.','我明白了。'],['Perfecto.','完美。']],neg:[['Vaya, lo siento.','哎呀，抱歉。'],['Ah, entiendo.','啊，我懂了。'],['No pasa nada.','沒關係。']],q:[['Buena pregunta.','好問題。'],['Claro.','當然。'],['Por supuesto.','當然。']],n:[['No pasa nada, vamos despacio.','沒關係，慢慢來。']]};
+const _rnd=a=>a[Math.floor(Math.random()*a.length)];
+function mock(text){const pool=(DLG[scen.role]||[]).map(s=>s.split('|')).concat(scen.mock||[]);const u=scen._u=scen._u||[];
+ let c=pool.map((p,i)=>i).filter(i=>!u.includes(i));if(!c.length){u.length=0;c=pool.map((p,i)=>i)}const k=_rnd(c);u.push(k);const p=pool[k];
+ const ty=/no sé|no entiendo|no s[eé]/i.test(text)?'n':/\?|^(qu[eé]|c[oó]mo|d[oó]nde|cu[aá]nt|cu[aá]l)/i.test(text)?'q':/(?<![a-z])(no|nunca|mal|odio)(?![a-z])|me duele/i.test(text)?'neg':'pos';const a=_rnd(ACK[ty]);
+ const fix=cap(text),ok=text.trim()===fix,errs=RULES.filter(r=>r[0].test(text.toLowerCase())).map(r=>r[1]);
+ let fb=errs.length?'發現可能的文法問題：'+errs.slice(0,2).join('；'):ok?'很棒！句子自然又正確。':'注意句首大寫與標點，並留意動詞變位與名詞陰陽性。';
+ if(/(quiero|tengo|compro|como|bebo|necesito)\s+(el|la|los|las|un|una)\s+\w+/i.test(text))fb+=' 提示：若對方已提過該名詞，可用受詞代名詞簡化：Lo/La quiero、Quiero comprarlo；雙賓語 le lo → se lo（Se lo doy）。';
+ const h=scen.hints,s=turns%3;return{ai_reply:a[0]+' '+p[0],ai_translation:a[1]+p[1],correction_status:ok&&!errs.length?'perfect':'improved',better_expression:fix,tutor_feedback:fb,suggested_replies:[h[s],h[(s+1)%3]].map(x=>({es:x[0],zh:x[1]}))}}
+
+/* --- DELE 離線評分 --- */
+function report(){try{
+ const ans=ex.tr.map(x=>x.a),low=ans.join('. ').toLowerCase(),W=low.match(/[a-záéíóúñü]+/g)||[],N=W.length||1,avg=N/ans.length,fill=low.match(FILL)||[];
+ const fluid=6.25*cl(.35*Math.min(avg/12,1)+.3*Math.min(N/70,1)+.35*(1-Math.min(fill.length/N*8,1)));
+ const used=CON.filter(c=>has(low,c)),miss=CON.filter(c=>!used.includes(c)),coh=6.25*cl(.12+.22*Math.min(used.length,4));
+ const uniq=new Set(W).size,ttr=uniq/N,adv=ADV.filter(a=>has(low,a)),alc=6.25*cl(.45*Math.min(ttr/.7,1)+.25*Math.min(uniq/45,1)+.3*Math.min(adv.length/3,1));
+ const errs=[];RULES.forEach(r=>{const m=low.match(r[0]);if(m)errs.push(`「${m[0]}」→ ${r[1]}`)});
+ const gram=6.25*cl(1-.2*errs.length-(N<15?.2:0)),fi=(fluid+coh)/2,pron=(fluid+gram)/2,D=[fi,alc,gram,pron].map(r1),tot=r1(D.reduce((a,b)=>a+b,0)),ok=tot>=15;
+ const weak=[];if(fill.length)weak.push(`停頓語氣詞出現 ${fill.length} 次（${[...new Set(fill)].join(', ')}），請用 Pues… 之外的完整短句填補。`);if(avg<8)weak.push(`平均每題只有 ${r1(avg)} 個字，答太短；試著用 porque 補充理由。`);if(used.length<2)weak.push('連接詞太少，句子顯得零碎。');if(ttr<.5)weak.push('重複用同一批單字，詞彙多樣性偏低。');
+ const top=errs.concat(weak).slice(0,3);while(top.length<3)top.push(['每句多加一個細節（時間、地點或原因）。','先說結論，再用 porque 說明理由。','遇到不懂時用 ¿Puede repetir, por favor? 保持互動。'][top.length]);
+ const c=$('#ex3');$('#ex2').classList.add('hide');c.classList.remove('hide');
+ c.innerHTML=`<h2>DELE ${ex.lvl} 口試模擬成績單（離線規則分析）</h2><div class="score ${ok?'apto':'noapto'}">${tot} / 25　${ok?'APTO':'NO APTO'}</div>
+ ${[['流利度與互動 Coherencia e interacción',D[0]],['詞彙量 Alcance',D[1]],['文法準確度 Corrección',D[2]],['發音與語調 Pronunciación（依流利度＋文法推估）',D[3]]].map(d=>`<div class="dim"><span>${d[0]}</span><b>${d[1]} / 6.25</b></div>`).join('')}
+ <h3 style="margin-top:12px;font-size:16px">分析明細</h3><ul class="mut">
+ <li><b>流利度 Fluidez：</b>總詞數 ${N}，平均每題 ${r1(avg)} 字，語氣詞 ${fill.length} 次（得分 ${r1(fluid)}）</li>
+ <li><b>連貫性 Coherencia：</b>已使用連接詞：${used.length?used.join(', '):'（無）'}<br>建議補充：${miss.slice(0,5).join(', ')}（得分 ${r1(coh)}）</li>
+ <li><b>詞彙量 Alcance：</b>不重複詞 ${uniq}，TTR ${(ttr*100).toFixed(0)}%；進階詞彙：${adv.length?adv.join(', '):'（無）'}（得分 ${r1(alc)}）</li>
+ <li><b>語法 Corrección：</b>${errs.length?errs.map(esc).join('<br>'):'未偵測到常見錯誤（規則庫有限，仍可能有漏網）'}（得分 ${r1(gram)}）</li></ul>
+ <h3 style="font-size:16px">最容易被扣分的 3 個關鍵錯誤</h3><ol>${top.map(e=>`<li>${esc(e)}</li>`).join('')}</ol>
+ <h3 style="font-size:16px">考官推薦的加分萬用句型</h3><ul><li>Me gusta… porque…（我喜歡…因為…）</li><li>Por ejemplo, …（例如…）</li><li>Además, … / Sin embargo, …（此外／然而…）</li><li>En mi opinión, …（依我看…）</li></ul>
+ <button class="btn pri" onclick="location.reload()">再考一次</button>`;scrollTo({top:0})}finally{postReport()}}
+
+/* --- 擴充字典（格式：字|中文|詞性|原形|例句；可自行在此追加） --- */
+const NDICT={};
+`agua|水|名詞(陰)|—|Quiero un vaso de agua.
+ahora|現在|副詞|—|Ahora estoy en casa.
+alto|高的|形容詞|—|Mi hermano es muy alto.
+amigo|朋友|名詞(陽)|—|Mi amigo vive en Madrid.
+aquí|這裡|副詞|—|Aquí hay un parque.
+año|年／歲|名詞(陽)|—|Tengo veinte años.
+bien|好|副詞|—|Estoy muy bien, gracias.
+caro|貴的|形容詞|—|Esta camisa es cara.
+cerca|附近|副詞|—|Mi casa está cerca.
+ciudad|城市|名詞(陰)|—|Vivo en una ciudad grande.
+comer|吃|動詞|comer|Como arroz todos los días.
+comprar|買|動詞|comprar|Voy a comprar pan.
+cuánto|多少|疑問詞|—|¿Cuánto cuesta?
+dar|給|動詞|dar|Te doy mi número.
+día|天|名詞(陽)|—|Hoy es un buen día.
+dinero|錢|名詞(陽)|—|No tengo dinero.
+dormir|睡覺|動詞|dormir|Duermo ocho horas.
+empieza|開始|動詞|empezar|La clase empieza a las nueve.
+entiendo|我理解|動詞|entender|No entiendo, ¿puede repetir?
+estoy|我在／我處於|動詞|estar|Estoy cansado.
+fácil|容易的|形容詞|—|El español no es fácil.
+familia|家庭|名詞(陰)|—|Mi familia es pequeña.
+feliz|快樂的|形容詞|—|Estoy feliz hoy.
+hablo|我說|動詞|hablar|Hablo un poco de español.
+haces|你做|動詞|hacer|¿Qué haces hoy?
+hermano|兄弟|名詞(陽)|—|Tengo un hermano.
+hora|時間／小時|名詞(陰)|—|¿Qué hora es?
+voy|我去|動詞|ir|Voy al trabajo en metro.
+lejos|遠|副詞|—|La estación está lejos.
+libro|書|名詞(陽)|—|Leo un libro.
+mañana|明天／早上|名詞／副詞|—|Mañana voy al médico.
+mucho|很多|副詞／形容詞|—|Me gusta mucho.
+necesito|我需要|動詞|necesitar|Necesito ayuda.
+niño|小孩|名詞(陽)|—|El niño juega en el parque.
+pago|我付款|動詞|pagar|Pago con tarjeta.
+pido|我點／要求|動詞|pedir|Pido una ensalada.
+sé|我知道／會|動詞|saber|No sé la respuesta.
+tarde|下午／晚|名詞／副詞|—|Llego tarde.
+trabajo|工作／我工作|名詞／動詞|trabajar|Trabajo en una oficina.
+viajar|旅行|動詞原形|viajar|Me gusta viajar.
+vive|住|動詞|vivir|Ella vive con su madre.
+hay|有（存在）|動詞|haber|Hay un banco aquí.
+medicina|藥|名詞(陰)|—|Tomo una medicina.
+cabeza|頭|名詞(陰)|—|Me duele la cabeza.
+semana|週|名詞(陰)|—|Estudio tres veces por semana.
+siempre|總是|副詞|—|Siempre desayuno en casa.
+nunca|從不|副詞|—|Nunca bebo café por la noche.
+también|也|副詞|—|Yo también soy estudiante.
+porque|因為|連接詞|—|Estudio porque me gusta.
+además|此外|連接詞|—|Además, hablo inglés.`.split('\n').forEach(l=>{const[w,zh,pos,lem,ex]=l.split('|');DICT[w]=[zh,pos,lem,ex].join('|')});
+Object.keys(DICT).forEach(k=>NDICT[norm(k)]=DICT[k]);
+
+
+
+
+/* 設定彈窗與語速 */
+spd=+localStorage.getItem('habla_spd')||1;$('#sv').textContent=spd.toFixed(1)+'x';
+const setSpd=d=>{spd=Math.max(.6,Math.min(1.4,Math.round((spd+d)*10)/10));$('#sv').textContent=spd.toFixed(1)+'x';localStorage.setItem('habla_spd',spd);speak('Hola',.85)};
+$('#sm').onclick=()=>setSpd(-.2);$('#sp').onclick=()=>setSpd(.2);
+const closeM=()=>$('#modal').classList.add('hide');
+$('#gear').onclick=()=>$('#modal').classList.remove('hide');$('#mclose').onclick=closeM;$('#modal').onclick=e=>{if(e.target.id==='modal')closeM()};
+
+
+
+/* ===== 階段二：DELE 口試室 10 套題組（Tarea 1-3 官方架構） ===== */
+const P=x=>x.split('|'),shuf=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+const SETS=[
+{n:'題組 A　旅遊與假期',k:'beach',t1:['Hable de sus vacaciones.|談談你的假期',['¿Adónde le gusta viajar?|你喜歡去哪裡旅行？','¿Con quién viaja?|和誰一起去？','¿Qué hace allí?|在那裡做什麼？','¿Adónde va a ir el próximo verano?|明年夏天打算去哪？']],t2:['Una playa en verano. Dos niños juegan con un cubo, un hombre está nadando y una mujer está leyendo debajo de una sombrilla.|夏天的海灘：兩個小孩玩水桶、男子游泳、女子在陽傘下看書。',['¿Qué ve en la foto?|你在照片中看到什麼？','¿Qué está haciendo el hombre?|男人在做什麼？','¿Dónde está la mujer?|女子在哪裡？']],t3:['Con un amigo, organicen un viaje de fin de semana: destino, transporte y fecha.|和朋友規劃週末旅行：目的地、交通、日期','Hola. Quiero hacer un viaje este fin de semana. ¿Adónde vamos?|嗨，我想週末去旅行，去哪裡？',['¿Cómo vamos, en tren o en coche?|怎麼去，火車還是開車？','Yo prefiero salir el sábado. ¿Y tú?|我想週六出發，你呢？','¿Dónde dormimos? ¿En un hotel?|住哪？旅館嗎？']]},
+{n:'題組 B　飲食與健康習慣',k:'rest',t1:['Hable de su comida y su salud.|談談飲食與健康',['¿Qué desayuna normalmente?|平常早餐吃什麼？','¿Cuál es su comida favorita?|最愛的食物？','¿Hace deporte? ¿Cuándo?|你運動嗎？何時？','¿Qué hace para estar sano?|你怎麼保持健康？']],t2:['Un restaurante. Un camarero está llevando platos, una pareja está comiendo y un niño está bebiendo agua.|餐廳：服務生端菜、情侶用餐、小孩喝水。',['¿Dónde están las personas?|這些人在哪裡？','¿Qué está haciendo el camarero?|服務生在做什麼？','¿Qué están comiendo?|他們在吃什麼？']],t3:['Con un amigo, decidan qué cocinar para una cena en casa.|和朋友決定在家晚餐煮什麼','Hola. Esta noche cenamos en casa. ¿Qué cocinamos?|今晚在家吃，煮什麼？',['¿Hacemos pasta o ensalada?|煮義大利麵還是沙拉？','¿Quién compra los ingredientes?|誰去買材料？','¿A qué hora empezamos?|幾點開始？']]},
+{n:'題組 C　居住環境與城市',k:'street',t1:['Hable de su casa y su ciudad.|談談你的家與城市',['¿Cómo es su casa?|你家什麼樣？','¿Qué hay en su barrio?|社區有什麼？','¿Le gusta su ciudad? ¿Por qué?|喜歡你的城市嗎？為什麼？','¿Dónde prefiere vivir en el futuro?|將來想住哪裡？']],t2:['Una calle de ciudad. Un coche está parando, una chica está cruzando la calle y hay una panadería al lado del banco.|城市街道：車停下、女孩過馬路、麵包店在銀行旁。',['¿Qué ve en la calle?|街上有什麼？','¿Dónde está la panadería?|麵包店在哪裡？','¿Qué está haciendo la chica?|女孩在做什麼？']],t3:['Con un compañero, elijan un piso para alquilar: precio y zona.|和室友挑選公寓：價格與地區','Hola. Tengo dos pisos. ¿Cuál prefieres?|我有兩間公寓，你喜歡哪間？',['Uno es barato, pero está lejos. ¿Qué piensas?|一間便宜但遠，你覺得呢？','¿Cuántas habitaciones necesitamos?|我們需要幾間房？','¿Vamos a verlo mañana?|明天去看嗎？']]},
+{n:'題組 D　休閒娛樂與科技',k:'home',t1:['Hable de su tiempo libre y de la tecnología.|談談休閒與科技',['¿Qué hace en su tiempo libre?|空閒時做什麼？','¿Qué usa más: el móvil o el ordenador?|手機還是電腦用得多？','¿Qué aplicaciones usa?|常用哪些 App？','¿Qué hizo el fin de semana pasado?|上週末做了什麼？']],t2:['Un salón. Un chico está jugando con el ordenador, una chica está viendo la tele y un gato duerme en el sofá.|客廳：男孩玩電腦、女孩看電視、貓在沙發睡覺。',['¿Dónde están?|他們在哪裡？','¿Qué está haciendo el chico?|男孩在做什麼？','¿Dónde está el gato?|貓在哪裡？']],t3:['Con un amigo, decidan qué película ver esta noche.|和朋友決定今晚看哪部電影','Hola. ¿Vemos una película esta noche?|今晚看電影嗎？',['¿Prefieres comedia o terror?|喜歡喜劇還是恐怖片？','¿La vemos en casa o en el cine?|在家看還是電影院？','¿Quedamos a las ocho?|八點見好嗎？']]},
+{n:'題組 E　工作學習與日常作息',k:'office',t1:['Hable de su trabajo o estudios y su rutina.|談談工作／學業與作息',['¿A qué hora se levanta?|幾點起床？','¿Qué hace por la mañana?|早上做什麼？','¿Le gusta su trabajo o sus estudios?|喜歡工作／學業嗎？','¿Qué hace después de trabajar?|下班後做什麼？']],t2:['Una oficina. Una mujer está escribiendo en el ordenador, un hombre está hablando por teléfono y hay un reloj en la pared.|辦公室：女子打字、男子講電話、牆上有時鐘。',['¿Qué hay en la oficina?|辦公室裡有什麼？','¿Qué está haciendo la mujer?|女子在做什麼？','¿Qué hora es?|現在幾點？']],t3:['Con un compañero, organicen una reunión: día y hora.|和同事安排會議：日期與時間','Hola. Necesitamos una reunión. ¿Cuándo puedes?|我們需要開會，你何時可以？',['El lunes no puedo. ¿Y el martes?|週一不行，週二呢？','¿Por la mañana o por la tarde?|上午還是下午？','¿Quién reserva la sala?|誰訂會議室？']]},
+{n:'題組 F　家庭與朋友',k:'park',t1:['Hable de su familia y sus amigos.|談談家人與朋友',['¿Cuántas personas hay en su familia?|家裡有幾個人？','¿Cómo es su mejor amigo?|最好的朋友怎樣？','¿Qué hacen juntos?|你們一起做什麼？','¿Qué hizo en su último cumpleaños?|上次生日做了什麼？']],t2:['Un parque. Unos niños están jugando con un perro y una mujer está leyendo debajo de un árbol.|公園：孩子和狗玩、女子在樹下看書。',['¿Qué ve en el parque?|公園裡有什麼？','¿Qué están haciendo los niños?|孩子們在做什麼？','¿Dónde está la mujer?|女子在哪裡？']],t3:['Con un amigo, organicen una fiesta de cumpleaños.|和朋友籌辦生日派對','Hola. El sábado es el cumpleaños de Ana. ¿Qué hacemos?|週六是 Ana 的生日，怎麼辦？',['¿Compramos un regalo? ¿Cuál?|買禮物嗎？買什麼？','¿Quién trae la tarta?|誰帶蛋糕？','¿A qué hora empieza la fiesta?|派對幾點開始？']]},
+{n:'題組 G　購物與服飾',k:'street',t1:['Hable de sus compras y su ropa.|談談購物與衣著',['¿Dónde compra la ropa?|在哪買衣服？','¿Qué ropa lleva hoy?|今天穿什麼？','¿Qué colores le gustan?|喜歡哪些顏色？','¿Qué compró la semana pasada?|上週買了什麼？']],t2:['Una tienda de ropa. Una clienta está probándose una chaqueta, el dependiente está colgando camisetas y hay un cartel de descuentos.|服飾店：顧客試穿外套、店員掛T恤、有折扣看板。',['¿Dónde están?|他們在哪裡？','¿Qué está haciendo la clienta?|顧客在做什麼？','¿Qué hay en el cartel?|看板寫了什麼？']],t3:['En una tienda, quiere cambiar una camiseta por otra talla.|在店裡把T恤換成別的尺寸','Buenos días. ¿En qué puedo ayudarle?|早安，需要幫忙嗎？',['¿Tiene el ticket de compra?|有購買收據嗎？','Esta talla es más grande. ¿Le gusta?|這個尺寸較大，喜歡嗎？','¿Quiere pagar la diferencia con tarjeta?|要刷卡補差價嗎？']]},
+{n:'題組 H　交通與出行',k:'street',t1:['Hable de cómo se mueve por la ciudad.|談談你如何在城市移動',['¿Cómo va al trabajo o a clase?|怎麼去上班／上課？','¿Cuánto tiempo tarda?|花多久時間？','¿Prefiere el metro o el autobús?|喜歡地鐵還是公車？','¿Cómo viajó la última vez?|上次旅行怎麼去的？']],t2:['Una estación de metro. Un hombre está comprando un billete, una chica está esperando el tren y un niño está corriendo.|地鐵站：男子買票、女孩等車、小孩在跑。',['¿Dónde están las personas?|這些人在哪裡？','¿Qué está comprando el hombre?|男子在買什麼？','¿Qué está haciendo la chica?|女孩在做什麼？']],t3:['Con un turista, expliquen cómo llegar al museo.|向遊客說明怎麼去博物館','Perdone, ¿cómo llego al museo?|請問怎麼去博物館？',['¿Está lejos de aquí?|離這裡很遠嗎？','¿Puedo ir andando?|我可以走路去嗎？','¿Dónde está la parada de autobús?|公車站在哪裡？']]},
+{n:'題組 I　節日與習俗',k:'rest',t1:['Hable de una fiesta de su país.|談談你國家的節日',['¿Cuál es su fiesta favorita?|最愛的節日？','¿Cuándo es?|什麼時候？','¿Qué comen ese día?|那天吃什麼？','¿Con quién la celebra?|和誰慶祝？']],t2:['Una cena de fiesta. Una familia está celebrando, un abuelo está cortando el pastel y los niños están cantando.|節慶晚餐：家人慶祝、爺爺切蛋糕、孩子唱歌。',['¿Quiénes están en la foto?|照片裡有誰？','¿Qué está cortando el abuelo?|爺爺在切什麼？','¿Qué están haciendo los niños?|孩子們在做什麼？']],t3:['Con un amigo, decidan qué regalo comprar para su profesor.|和朋友決定送老師什麼禮物','Hola. Es el cumpleaños del profesor. ¿Qué le regalamos?|老師生日，我們送什麼？',['¿Un libro o unas flores?|書還是花？','¿Cuánto dinero ponemos cada uno?|每人出多少錢？','¿Quién se lo da?|誰去送他？']]},
+{n:'題組 J　天氣與戶外活動',k:'park',t1:['Hable del tiempo y de las actividades al aire libre.|談談天氣與戶外活動',['¿Qué tiempo hace hoy?|今天天氣如何？','¿Qué estación prefiere?|喜歡哪個季節？','¿Qué hace cuando llueve?|下雨時做什麼？','¿Adónde va a ir este fin de semana?|這週末要去哪裡？']],t2:['Un parque en otoño. Dos amigos están caminando, un chico está sacando fotos y hace mucho viento.|秋天的公園：兩個朋友散步、男孩拍照、風很大。',['¿Qué tiempo hace?|天氣如何？','¿Qué están haciendo los amigos?|朋友們在做什麼？','¿Qué lleva el chico?|男孩穿什麼？']],t3:['Con un amigo, planeen una excursión: día, ropa y comida.|和朋友計畫郊遊：日期、衣著與食物','Hola. ¿Hacemos una excursión el domingo?|週日去郊遊嗎？',['Va a llover. ¿Qué hacemos?|會下雨，怎麼辦？','¿Qué comida llevamos?|帶什麼食物？','¿Quedamos a las nueve?|九點集合？']]}];
+const FU=['Muy interesante. ¿Por qué es importante para usted?|很有趣。為什麼對你重要？','Gracias. ¿Y con quién lo hace normalmente?|謝謝。通常和誰一起？','¿Qué es lo que más le gusta de eso?|你最喜歡哪一點？','¿Y cómo fue la última vez?|上一次是怎樣的？'];
+const DEEP=['¿Le gustaría estar en ese lugar? ¿Por qué?|你想去那個地方嗎？為什麼？','¿Qué hace usted normalmente en un lugar así?|你平常在這種地方做什麼？'];
+const CLOSE='Muy bien, entonces estamos de acuerdo. ¿Algo más?|好，那我們達成共識了，還有事嗎？';
+const SV={park:'<circle cx="250" cy="30" r="16" fill="#E89874"/><rect x="60" y="75" width="8" height="40" fill="#8a6a4a"/><circle cx="64" cy="66" r="26" fill="#5B8A72"/><circle cx="150" cy="112" r="8" fill="#F3CDB9"/><rect x="143" y="120" width="14" height="16" rx="4" fill="#5B8A72"/><circle cx="176" cy="112" r="8" fill="#F3CDB9"/><rect x="169" y="120" width="14" height="16" rx="4" fill="#E89874"/><ellipse cx="225" cy="128" rx="16" ry="9" fill="#b9a089"/>',
+rest:'<rect x="80" y="88" width="110" height="8" fill="#b9a089"/><rect x="90" y="96" width="5" height="34" fill="#b9a089"/><rect x="175" y="96" width="5" height="34" fill="#b9a089"/><circle cx="110" cy="66" r="9" fill="#F3CDB9"/><rect x="100" y="76" width="20" height="12" rx="4" fill="#5B8A72"/><circle cx="160" cy="66" r="9" fill="#F3CDB9"/><rect x="150" y="76" width="20" height="12" rx="4" fill="#E89874"/><circle cx="125" cy="86" r="5" fill="#fff"/><circle cx="148" cy="86" r="5" fill="#fff"/><circle cx="240" cy="70" r="9" fill="#F3CDB9"/><rect x="230" y="80" width="20" height="40" rx="5" fill="#2C302E"/><rect x="215" y="86" width="16" height="3" fill="#fff"/>',
+street:'<rect x="15" y="20" width="70" height="95" fill="#D8D0C4"/><rect x="95" y="45" width="55" height="70" fill="#CFC6B8"/><rect x="28" y="34" width="14" height="14" fill="#fff"/><rect x="55" y="34" width="14" height="14" fill="#fff"/><rect x="108" y="58" width="12" height="12" fill="#fff"/><rect x="170" y="98" width="75" height="22" rx="6" fill="#E89874"/><circle cx="187" cy="121" r="7" fill="#2C302E"/><circle cx="228" cy="121" r="7" fill="#2C302E"/><rect x="268" y="50" width="4" height="70" fill="#6B726E"/><circle cx="270" cy="48" r="7" fill="#F3E3B0"/>',
+home:'<rect width="300" height="150" fill="#F3EEE6"/><rect y="110" width="300" height="40" fill="#E4D8C6"/><rect x="40" y="82" width="120" height="32" rx="8" fill="#5B8A72"/><rect x="40" y="66" width="120" height="22" rx="8" fill="#7BA38C"/><circle cx="85" cy="62" r="8" fill="#F3CDB9"/><ellipse cx="135" cy="76" rx="12" ry="7" fill="#b9a089"/><rect x="200" y="25" width="60" height="55" fill="#DCEBE3" stroke="#E8E2D9"/><rect x="190" y="95" width="40" height="22" fill="#6B726E"/>',
+beach:'<rect y="75" width="300" height="75" fill="#EBDCC0"/><rect y="55" width="300" height="30" fill="#BFD8D2"/><circle cx="250" cy="28" r="16" fill="#E89874"/><path d="M60 100 Q90 62 120 100Z" fill="#E89874"/><rect x="89" y="100" width="2" height="30" fill="#6B726E"/><circle cx="85" cy="122" r="7" fill="#F3CDB9"/><circle cx="175" cy="118" r="7" fill="#F3CDB9"/><circle cx="200" cy="124" r="6" fill="#F3CDB9"/><circle cx="230" cy="70" r="7" fill="#F3CDB9"/>',
+office:'<rect width="300" height="150" fill="#F3EEE6"/><rect y="120" width="300" height="30" fill="#E4D8C6"/><rect x="50" y="88" width="130" height="8" fill="#b9a089"/><rect x="95" y="70" width="40" height="18" fill="#6B726E"/><circle cx="115" cy="56" r="9" fill="#F3CDB9"/><rect x="105" y="62" width="20" height="8" rx="3" fill="#5B8A72"/><circle cx="230" cy="40" r="17" fill="#fff" stroke="#2C302E"/><path d="M230 40V30M230 40L238 44" stroke="#2C302E" stroke-width="2"/><circle cx="215" cy="85" r="8" fill="#F3CDB9"/><rect x="206" y="94" width="18" height="30" rx="5" fill="#E89874"/>'};
+const svg=k=>`<svg viewBox="0 0 300 150" role="img" aria-label="考試情境圖" style="width:100%;max-width:420px;border-radius:14px;border:1px solid #E8E2D9;display:block"><rect width="300" height="150" fill="#F3EEE6"/><rect y="115" width="300" height="35" fill="#CFE2D6"/>${SV[k]}</svg>`;
+const ssel=document.createElement('select');ssel.style.cssText='padding:8px;border:1px solid var(--line);border-radius:var(--r);margin:8px 0;width:100%;background:#fff';ssel.innerHTML=SETS.map((s,i)=>`<option value="${i}">${s.n}</option>`).join('');$('#tasks').before(ssel);
+$('#notes').placeholder='針對 Tarea 1 的 4 個子問題各寫一行關鍵字（正式考試不能照稿唸）';
+function renderPrep(){const S=SETS[ex.si],a=P(S.t1[0]),b=P(S.t2[0]);ssel.value=ex.si;$('#exT').textContent='DELE '+ex.lvl+' 考前準備室';
+ $('#tasks').innerHTML=`<div class="hint" style="cursor:default"><b>Tarea 1　個人獨白（2–3 分鐘）</b><div class="es">${esc(a[0])}</div><div class="zh">${esc(a[1])}</div><div style="margin-top:6px">請在獨白中一次回答這 ${ex.lvl==='A2'?4:4} 點：</div><ol style="margin:4px 0 0;padding-left:20px">${S.t1[1].map(q=>{const p=P(q);return `<li>${esc(p[0])}<span class="zh"> ${esc(p[1])}</span></li>`}).join('')}</ol><div class="mut" style="margin-top:4px">講完後考官會追問 ${ex.lvl==='A2'?2:1} 句。</div></div>
+ <div class="hint" style="cursor:default"><b>Tarea 2　看圖描述與問答（2–3 分鐘）</b>${svg(S.k)}<div class="es" style="margin-top:6px">${esc(b[0])}</div><div class="zh">${esc(b[1])}</div><div class="mut" style="margin-top:4px">提示：用 estar + gerundio 描述動作，用 a la izquierda / a la derecha / detrás de / al lado de 說位置。實際考試是看圖獨白 2–3 分鐘，需涵蓋：有誰與在哪、正在做什麼、你在這種地方會做什麼；之後考官可能追問。</div></div>
+ <div class="mut">Tarea 3（情境角色扮演，3–4 分鐘）將在考場內公布。</div>`}
+ssel.onchange=()=>{ex.si=+ssel.value;$('#notes').value='';renderPrep()};
+function draw(){ex.si=Math.floor(Math.random()*SETS.length);ex.turn=0;ex.tr=[];$('#notes').value='';['#ex0','#ex2','#ex3'].forEach(i=>$(i).classList.add('hide'));$('#ex1').classList.remove('hide');renderPrep();
+ clearInterval(ex.pt);ex.sec=ex.lvl==='A2'?720:600;$('#ptime').textContent=fmt(ex.sec);ex.pt=setInterval(()=>{ex.sec--;$('#ptime').textContent=fmt(Math.max(ex.sec,0));if(ex.sec<=0){clearInterval(ex.pt);enterRoom()}},1000)}
+$('#redraw').onclick=()=>draw();$('#enter').onclick=()=>enterRoom();
+function card(k){const S=SETS[ex.si],d=document.createElement('div');d.className='card';
+ if(k==='t1'){const a=P(S.t1[0]);d.innerHTML=`<b>Tarea 1　個人獨白</b><div class="es">${esc(a[0])}</div><ol style="margin:4px 0;padding-left:20px">${S.t1[1].map(q=>`<li>${esc(P(q)[0])}</li>`).join('')}</ol><div class="mut">請一次說完 4 點，可多按幾次麥克風接續補講，說完再按送出。</div>`}
+ if(k==='t2'){const b=P(S.t2[0]);d.innerHTML=`<b>Tarea 2　看圖描述</b><div style="margin:6px 0">${svg(S.k)}</div><div class="es">${esc(b[0])}</div><div class="zh">${esc(b[1])}</div>`}
+ if(k==='t3'){const c=P(S.t3[0]);d.innerHTML=`<b>Tarea 3　角色扮演</b><div class="es">${esc(c[0])}</div><div class="zh">${esc(c[1])}</div><div class="mut">雙方需要達成共識。</div>`}
+ $('#emsgs').appendChild(d)}
+function tickT(t){ex.ts=0;clearInterval(ex.tt);ex.tt=setInterval(()=>{ex.ts++;$('#ttime').textContent=fmt(ex.ts)},1000);$('#ttime').textContent='00:00';
+ let tp=$('#ttip');if(!tp){tp=document.createElement('span');tp.id='ttip';tp.className='mut';$('#ttime').after(tp)}tp.textContent='　建議 '+['','2–3','2–3','3–4'][t]+' 分鐘'}
+function prog(){const t=ex.plan[Math.min(ex.turn,ex.plan.length-1)].t;document.querySelectorAll('#prog div').forEach((d,i)=>d.className=i+1<t?'done':i+1===t?'on':'')}
+function enterRoom(){clearInterval(ex.pt);$('#ex1').classList.add('hide');$('#ex2').classList.remove('hide');$('#emsgs').innerHTML='';
+ const S=SETS[ex.si],a2=ex.lvl==='A2',T1=P(S.t1[0]),T2=S.t2[1].map(P),T3=P(S.t3[0]),O=P(S.t3[1]),pl=[];
+ pl.push({t:1,s:['Buenas tardes. Soy su examinador. Tarea 1: '+T1[0]+' Tiene dos o tres minutos.','午安，我是考官。第一題：'+T1[1]+'，請說 2 到 3 分鐘。'],c:'t1'});
+ shuf(FU).slice(0,a2?2:1).forEach(f=>pl.push({t:1,s:P(f)}));
+ T2.concat(a2?DEEP.map(P):[]).forEach((q,i)=>pl.push({t:2,s:i?q:['Gracias. Tarea 2: Mire la foto. '+q[0],'謝謝。第二題：請看照片。'+q[1]],c:i?0:'t2'}));
+ pl.push({t:3,s:['Tarea 3: Yo soy su compañero. '+O[0],'第三題：我是你的對象。'+O[1]],c:'t3'});
+ S.t3[2].slice(0,a2?3:2).forEach(q=>pl.push({t:3,s:P(q)}));pl.push({t:3,s:P(CLOSE)});
+ ex.plan=pl;ex.turn=0;ex.tr=[];ex.curT=0;examiner();{startTot();const a2=ex.lvl==='A2',i0=ex.plan.findIndex(p=>p.t===2),tp=ex.plan.filter(p=>p.t===2);
+ const first={t:2,c:'t2',s:['Gracias. Tarea 2: Mire la foto y hable durante dos o tres minutos. Tiene que decir quiénes están y dónde, qué están haciendo, y qué hace usted en un lugar así.','謝謝。第二題：請看照片說 2 到 3 分鐘，需說明：有誰、在哪、正在做什麼，以及你在這種地方會做什麼。']};
+ ex.plan.splice(i0,tp.length,first,...tp.slice(1,a2?4:3))}}
+async function examiner(){busy=true;const p=ex.plan[ex.turn];if(ex.curT!==p.t){ex.curT=p.t;tickT(p.t)}if(p.c)card(p.c);
+ ex.q=p.s[0];addAI($('#emsgs'),p.s[0],p.s[1],false);if(p&&p.src){const l=$('#emsgs').lastElementChild;if(l)l.insertAdjacentHTML('beforeend','<div class="mut">追問依據：'+esc(p.src)+'</div>')};speakAI(p.s[0]);busy=false;prog()}
+
+
+
+
+/* ===== Tarea 1 關鍵字動態追問（離線） ===== */
+/*A*/
+const CATS={time:'ayer,hoy,manan,tard,noch,seman,mes=,meses,ano,verano,invierno,primavera,otono,siempre,nunca,normalmente,veces,todos los dias,fin de semana,lunes,martes,miercoles,jueves,viernes,sabado,domingo,pasad,proxim,cuando,temprano,despues,antes,hora,luego,cada',
+place:'en la,en el,en mi,en un,en una,en los,en las,playa,montan,ciudad,casa,barrio,parque,oficina,hotel,pais,pueblo,tienda,escuela,universidad,centro,calle,cerca,lejos,vivo en,voy a,restaurante,campo,aeropuerto,estacion,museo',
+who:'con mi,con mis,con un,con una,con el,con la,con los,con las,amig,famil,padre,madre,herman,novi,pareja,solo=,sola=,espos,companer,hij,abuel,primo,tio,tia',
+feel:'me gust,gusto,encant,divert,bonit,aburrid,feliz,content,interesant,genial,fantastic,odio,prefiero,favorit,dificil,facil,cansad,relajad,increible,maravill,estupend,bueno,malo,mejor'};
+const CATZH={time:'時間',place:'地點',who:'同行者／人物',feel:'感受',what:'具體內容'};
+const hit=(nt,k)=>new RegExp('(^| )'+(k.endsWith('=')?k.slice(0,-1)+'( |$)':k)).test(nt);
+const has4=(nt,c)=>CATS[c].split(',').some(k=>hit(nt,k));
+const catOf=q=>{const n=norm(q);return/con quien|quien|cuantas personas|amigo|juntos/.test(n)?'who':/adonde|donde|barrio|ciudad|casa|compra la ropa|vivir|hay en/.test(n)?'place':/cuando|que hora|cuanto tiempo|tarda|proxim|pasad|semana|estacion|ultim|futuro|levanta|despues/.test(n)?'time':/le gusta|gustan|favorit|prefiere|como es|por que|importante|sano|colores/.test(n)?'feel':'what'};
+const KWLIB=`comid,cocin,comer|¿Cuál es su plato favorito?|你最愛的菜是什麼？
+restaurante|¿Qué pide normalmente en un restaurante?|你在餐廳通常點什麼？
+desayun|¿Qué toma para desayunar?|你早餐吃什麼？
+cena=,cenar,cenamos|¿Con quién cena normalmente?|你通常和誰吃晚餐？
+cafe|¿Cuántos cafés bebe al día?|你一天喝幾杯咖啡？
+fruta,verdura|¿Qué fruta le gusta más?|你最喜歡什麼水果？
+pescado,carne|¿Prefiere la carne o el pescado?|你比較愛肉還是魚？
+pasta,pizza,arroz|¿Sabe cocinar ese plato?|你會做那道菜嗎？
+playa|¿Qué hace usted en la playa?|你在海灘做什麼？
+montan|¿Va a la montaña en verano o en invierno?|你夏天還是冬天去山上？
+nad,natacion|¿Cuántas veces nada por semana?|你一週游幾次泳？
+viaj|¿Cuál fue su mejor viaje?|你最棒的一次旅行是哪次？
+hotel|¿Prefiere un hotel o un apartamento?|你喜歡住旅館還是公寓？
+avion,tren,autobus,coche,metro|¿Qué transporte prefiere para viajar?|旅行你喜歡什麼交通工具？
+vacacion|¿Cuántos días de vacaciones tiene?|你有幾天假期？
+trabaj|¿Qué es lo mejor de su trabajo?|你的工作最棒的是什麼？
+oficina|¿Cuántas personas hay en su oficina?|你的辦公室有幾個人？
+estudi,universidad|¿Qué es lo más difícil de estudiar?|讀書最困難的是什麼？
+escuela,colegio,clase|¿Cómo es su clase?|你的班級怎樣？
+profesor|¿Cómo es su profesor favorito?|你最喜歡的老師怎樣？
+espanol|¿Por qué estudia español?|你為什麼學西班牙文？
+ingles,chino,idioma|¿Qué idiomas habla?|你會說哪些語言？
+famil|¿Cómo es su familia?|你的家人是怎樣的？
+padres,madre,padre|¿Qué hacen sus padres?|你的父母做什麼工作？
+herman|¿Cómo se llama su hermano o hermana?|你的兄弟姊妹叫什麼？
+hij,ninos|¿Cuántos años tienen?|他們幾歲？
+abuel|¿Dónde viven sus abuelos?|你的祖父母住哪裡？
+amig|¿Qué hace con sus amigos?|你和朋友做什麼？
+novio,novia,pareja|¿Cómo se conocieron?|你們怎麼認識的？
+perro,gato,mascota|¿Cómo se llama su mascota?|你的寵物叫什麼？
+deporte,correr|¿Con qué frecuencia hace deporte?|你多常運動？
+futbol,baloncesto,tenis|¿Cuál es su equipo favorito?|你最愛哪一隊？
+gimnasio|¿Va al gimnasio a menudo?|你常去健身房嗎？
+pelicula,cine=|¿Cuál es su película favorita?|你最愛的電影是哪部？
+music,cant|¿Qué música le gusta?|你喜歡什麼音樂？
+libro,leer,leo=|¿Qué libro está leyendo?|你正在讀什麼書？
+serie,tele=,television|¿Qué serie le gusta?|你喜歡什麼影集？
+videojuego,jugar,juego=|¿Con quién juega?|你和誰一起玩？
+movil,telefono|¿Para qué usa el móvil?|你用手機做什麼？
+ordenador,internet,computadora|¿Cuántas horas usa internet al día?|你一天上網幾小時？
+redes,instagram|¿Qué redes sociales usa?|你用哪些社群媒體？
+casa,piso,apartamento|¿Cuál es su habitación favorita?|你最喜歡哪個房間？
+cocina=|¿Le gusta cocinar?|你喜歡下廚嗎？
+jardin,balcon|¿Qué plantas tiene?|你有種什麼植物？
+ciudad|¿Qué lugar recomienda de su ciudad?|你推薦城市裡的哪個地方？
+barrio|¿Hay un parque en su barrio?|你的社區有公園嗎？
+campo=,pueblo|¿Prefiere el campo o la ciudad?|你喜歡鄉下還是城市？
+parque|¿Qué hace en el parque?|你在公園做什麼？
+tienda,compr|¿Qué compró la última vez?|你上次買了什麼？
+ropa|¿Qué ropa le gusta llevar?|你喜歡穿什麼衣服？
+zapato|¿Cuántos pares de zapatos tiene?|你有幾雙鞋？
+dinero,caro,barato|¿Gasta mucho dinero en eso?|你在這方面花很多錢嗎？
+fiesta,cumpleanos|¿Cómo celebra su cumpleaños?|你怎麼慶祝生日？
+navidad,ano nuevo|¿Qué hace en esas fiestas?|你在那些節日做什麼？
+regalo|¿Qué regalo recibió?|你收到過什麼禮物？
+calor,frio,lluev,lluvia|¿Qué tiempo prefiere?|你喜歡什麼天氣？
+verano|¿Qué hace usted en verano?|你夏天做什麼？
+invierno|¿Le gusta el invierno?|你喜歡冬天嗎？
+sol=|¿Le gusta tomar el sol?|你喜歡曬太陽嗎？
+nieve|¿Ha visto la nieve alguna vez?|你看過雪嗎？
+medico,hospital,enferm|¿Va al médico a menudo?|你常看醫生嗎？
+dorm|¿Cuántas horas duerme?|你睡幾小時？
+salud,sano|¿Qué hace para cuidar su salud?|你怎麼照顧健康？
+levant|¿Qué hace justo después de levantarse?|起床後你馬上做什麼？
+noche|¿Qué hace por la noche?|你晚上做什麼？
+fin de semana|¿Qué hace normalmente el domingo?|你通常週日做什麼？
+duch|¿Se ducha por la mañana?|你早上洗澡嗎？
+bicicleta|¿Va en bicicleta a menudo?|你常騎腳踏車嗎？
+taxi|¿Cuándo toma un taxi?|你什麼時候搭計程車？
+aeropuerto|¿Le gusta viajar en avión?|你喜歡搭飛機嗎？
+museo|¿Qué museo recomienda?|你推薦哪間博物館？
+foto|¿Qué le gusta fotografiar?|你喜歡拍什麼？
+taiwan|¿Qué comida típica recomienda de Taiwán?|你推薦台灣的什麼特色美食？
+espana,mexico,japon|¿Qué lugar de ese país recomienda?|你推薦那個國家的哪個地方？
+bail|¿Baila bien?|你跳舞跳得好嗎？
+dibuj,pint|¿Desde cuándo lo hace?|你從什麼時候開始的？`.split('\n').map(l=>{const[k,e,z]=l.split('|');return{k:k.split(',').map(norm),es:e,zh:z}});
+function buildFU(text,nf){const nt=norm(text),ow=text.split(/\s+/).map(w=>w.replace(/[¿?¡!.,;:"]/g,'')),nw=ow.map(norm),N=nw.filter(Boolean).length,out=[],seen=new Set();
+ // 1) 漏講偵測：依 4 個引導問題的類別檢查
+ SETS[ex.si].t1[1].map(P).forEach(q=>{const c=catOf(q[0]);if(seen.has(c))return;seen.add(c);const ok=c==='what'?N>=10:has4(nt,c);
+  if(!ok)out.push({t:1,s:['Gracias. Usted no ha hablado de esto: '+q[0],'謝謝。你還沒談到這點：'+q[1]],src:'你的獨白沒有提到「'+CATZH[c]+'」'})});
+ // 2) 內容延伸追問：依你提到的字（依出現順序）
+ const m=[];KWLIB.forEach(e=>{let best=null;e.k.forEach(k=>{const ex_=k.endsWith('='),kk=ex_?k.slice(0,-1):k;if(kk.includes(' ')){if(hit(nt,k))best=best===null?nt.indexOf(kk):best;return}
+  const i=nw.findIndex(w=>ex_?w===kk:w.startsWith(kk));if(i>=0&&(best===null||i<best))best=i});
+  if(best!==null){const i=typeof best==='number'&&best<nw.length?best:0;m.push({i,e,w:ow[i]||e.k[0]})}});
+ m.sort((a,b)=>a.i-b.i).forEach(x=>out.push({t:1,s:['Ha dicho "'+x.w+'". '+x.e.es,'你提到了「'+x.w+'」。'+x.e.zh],src:'你提到了「'+x.w+'」'}));
+ // 3) 保底：隨機題庫
+ shuf(FU).forEach(f=>out.push({t:1,s:P(f),src:'隨機追問'}));
+ return out.slice(0,nf)}
+/*B*/
+
+async function sendExam(text){busy=true;addUser($('#emsgs'),text,'');ex.tr.push({q:ex.q,a:text});
+ if(ex.turn===0){const nf=ex.plan.filter(p=>p.t===1).length-1;ex.plan.splice(1,nf,...buildFU(text,nf))}
+ ex.turn++;if(ex.turn>=ex.plan.length){clearInterval(ex.tt);busy=false;return report()}await aiFollow(text);await examiner()}
+
+
+
+/* ===== RWD 輔助：空狀態、鍵盤避讓、輸入框自動增高 ===== */
+
+const bar=$('.bar'),inp0=$('#inp');
+const pad=()=>document.body.style.paddingBottom=(bar.offsetHeight+16)+'px';
+if(window.ResizeObserver)new ResizeObserver(pad).observe(bar);pad();
+if(window.visualViewport){const vv=visualViewport,f=()=>{const off=Math.max(0,window.innerHeight-vv.height-vv.offsetTop);bar.style.transform=off>1?`translateY(${-off}px)`:'';pad()};vv.addEventListener('resize',f);vv.addEventListener('scroll',f)}
+const grow=()=>{inp0.style.height='auto';inp0.style.height=Math.min(inp0.scrollHeight,Math.round(innerHeight*.28))+'px'};
+inp0.addEventListener('input',grow);$('#send').addEventListener('click',()=>setTimeout(()=>{inp0.style.height='';grow()},0));
+
+inp0.addEventListener('focus',()=>setTimeout(()=>inp0.scrollIntoView({block:'nearest'}),300));
+
+
+
+/* ===== 情境大廳分類、弱點本、保命句、Tarea 2 還原 ===== */
+const N2=[['Vendedor de tacos','點塔可並問價格','¡Hola! ¿Qué quieres?|嗨！你要什麼？',['Quiero dos tacos, por favor.|我要兩個塔可。','¿Cuánto cuesta?|多少錢？','Con todo, sin picante.|全部都加，不要辣。'],['¿De pollo o de carne?|雞肉還是牛肉？','¿Con cebolla y cilantro?|要洋蔥和香菜嗎？','¿Quieres algo de beber?|要喝點什麼嗎？','Son veinte pesos. ¿Pagas en efectivo?|二十披索，付現嗎？']],
+['Recepcionista','辦理入住：姓名、天數、早餐','Buenas tardes. ¿Tiene una reserva?|午安，您有訂房嗎？',['Sí, me llamo Wang. Tengo una reserva.|有，我叫 Wang，有訂房。','Es para tres noches.|住三晚。','¿El desayuno está incluido?|含早餐嗎？'],['Su pasaporte, por favor.|請給我護照。','La habitación es la 305, en el tercer piso.|房間是 305，在三樓。','El desayuno es de siete a diez.|早餐七點到十點。','¿Necesita algo más?|還需要什麼嗎？']],
+['Farmacéutico','描述症狀並買藥','Hola. ¿En qué puedo ayudarle?|您好，需要什麼？',['Tengo tos y me duele la garganta.|我咳嗽、喉嚨痛。','¿Tiene algo para el resfriado?|有感冒藥嗎？','¿Cuántas veces al día la tomo?|一天吃幾次？'],['¿Tiene fiebre?|有發燒嗎？','Tome una pastilla cada ocho horas.|每八小時吃一顆。','Beba mucha agua y descanse.|多喝水、多休息。','¿Es alérgico a algún medicamento?|您對藥物過敏嗎？']],
+['Taxista','說出目的地並問價格','Buenas noches. ¿Adónde va?|晚安，您去哪裡？',['Al aeropuerto, por favor.|請到機場。','¿Cuánto tarda?|要多久？','Pare aquí, por favor.|請在這裡停車。'],['¿Tiene prisa?|趕時間嗎？','Hay mucho tráfico hoy.|今天車很多。','Son quince euros.|十五歐元。','¿Paga con tarjeta o en efectivo?|刷卡還是現金？']],
+['Nueva amiga','在派對上認識新朋友','¡Hola! Me llamo Marta. ¿Y tú?|嗨！我叫 Marta，你呢？',['Mucho gusto, soy Li.|幸會，我是 Li。','¿De dónde eres?|你從哪來？','Me encanta esta fiesta.|我很喜歡這個派對。'],['¿Cómo conoces a los anfitriones?|你怎麼認識主人？','¿Qué haces en tu tiempo libre?|你空閒時做什麼？','¿Tienes Instagram? Podemos quedar otro día.|你有 IG 嗎？改天約。','¡Vamos a bailar!|我們去跳舞吧！']],
+['Recepcionista de restaurante','打電話預約餐廳','Restaurante La Plaza, buenas tardes.|La Plaza 餐廳，午安。',['Quiero reservar una mesa para cuatro.|我想訂四人桌。','Para mañana a las nueve.|明天九點。','A nombre de Chen.|姓 Chen。'],['¿Para qué día?|哪一天？','¿A qué hora le va bien?|幾點方便？','¿A nombre de quién?|請問貴姓？','¿Quiere mesa dentro o en la terraza?|要室內還是露台？']],
+['Empleado de correos','寄包裹並問運費','Buenos días. ¿Qué desea enviar?|早安，您要寄什麼？',['Quiero enviar este paquete a Taiwán.|我想寄這包裹到台灣。','¿Cuánto cuesta el envío?|運費多少？','¿Cuándo llega?|何時到？'],['¿Es una carta o un paquete?|信還是包裹？','Tiene que rellenar este formulario.|您要填這張表。','Llega en una semana.|一週會到。','¿Quiere enviarlo urgente?|要寄快遞嗎？']]];
+N2.forEach(n=>{const o=P(n[2]);ALL[n[0]]={role:n[0],mission:n[1],es:o[0],zh:o[1],hints:n[3].map(P),mock:[]};DLG[n[0]]=n[4]});
+const CAT=['全部','社交','旅遊交通','餐飲購物','健康','居住生活','工作學習'],CATALOG=[['個人介紹','Compañero de clase','社交','A1'],['家庭與朋友','Nuevo amigo','社交','A1'],['交友聊天','Nueva amiga','社交','A2'],['興趣與休閒','Amigo','社交','A2'],['交通與問路','Peatón amable','旅遊交通','A1'],['搭計程車','Taxista','旅遊交通','A1'],['飯店 Check-in','Recepcionista','旅遊交通','A2'],['餐廳點餐','Camarero','餐飲購物','A1'],['街頭買塔可','Vendedor de tacos','餐飲購物','A1'],['商店購物','Dependiente','餐飲購物','A1'],['電話訂位','Recepcionista de restaurante','餐飲購物','A2'],['看醫生','Médico','健康','A2'],['藥局買感冒藥','Farmacéutico','健康','A2'],['居家與城市','Vecino','居住生活','A1'],['住宿（租屋）','Casero','居住生活','A2'],['郵局寄包裹','Empleado de correos','居住生活','A2'],['日常作息','Compañero de piso','工作學習','A1'],['工作與天氣','Colega','工作學習','A2'],['工作面試','Entrevistador','工作學習','A2']];
+let fc='全部';
+const hf1=document.createElement('div');hf1.innerHTML='<div class="tags" id="fcat"></div>';hub.before(hf1);hub.style.marginTop='10px';
+function chips(id,list,cur,set){const b=$(id);b.innerHTML=list.map(x=>`<span class="tag${x===cur?' on':''}">${x}</span>`).join('');b.querySelectorAll('.tag').forEach(t=>t.onclick=()=>{set(t.textContent);drawHub()})}
+function drawHub(){chips('#fcat',CAT,fc,v=>fc=v);
+ hub.innerHTML='';CATALOG.filter(c=>(fc==='全部'||c[2]===fc)).forEach(c=>{const b=document.createElement('button');b.className='sc';b.innerHTML=`<b>${esc(c[0])}</b><div class="mut">${esc(ALL[c[1]].mission)}</div>`;
+  b.onclick=()=>{[...hub.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');startScen({...ALL[c[1]],_u:[]})};hub.appendChild(b)})}
+drawHub();
+/* 自訂情境模板補上新場景 */
+TPL.push(['街頭買塔可','Vendedor de tacos'],['飯店入住','Recepcionista'],['藥局買藥','Farmacéutico'],['搭計程車','Taxista'],['交友聊天','Nueva amiga'],['電話訂位','Recepcionista de restaurante'],['郵局寄包裹','Empleado de correos']);
+KW.unshift([/塔可|街頭/,11],[/飯店|check|旅館/i,12],[/藥局|感冒/,13],[/計程車|taxi/i,14],[/派對|交友|認識/,15],[/訂位|預約|電話/,16],[/郵局|寄|包裹/,17]);
+tsel.innerHTML='<option value="">自動判定</option>'+TPL.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join('');
+/* 考場保命句 */
+const SURV=['Perdone, ¿puede repetir, por favor?|不好意思，可以再說一次嗎？','Más despacio, por favor.|請說慢一點。','No entiendo la palabra…|我不懂這個字…','¿Cómo se dice… en español?|…西文怎麼說？','Un momento, por favor. Estoy pensando.|請等一下，我在想。','Además, …|此外…','Por ejemplo, …|例如…','Porque…|因為…','Estoy de acuerdo. / No estoy de acuerdo.|我同意／不同意','Me gustaría…|我想要…'];
+const sd=document.createElement('details');sd.className='card';sd.innerHTML='<summary>考場保命句（點一下聽發音）</summary><div class="acts" style="margin-top:8px">'+SURV.map(x=>{const p=P(x);return `<button class="btn" data-say="${esc(p[0])}" data-rate=".85" style="text-align:left">${esc(p[0])}<div class="zh">${esc(p[1])}</div></button>`}).join('')+'</div>';$('#notes').before(sd);
+/* Tarea 2 還原：看圖獨白 2–3 分鐘（涵蓋指定要點），其後少量追問 */
+
+
+
+
+/* ===== 升級版答案（離線規則引擎） ===== */
+try{localStorage.removeItem('habla_weak')}catch(e){}
+const MAPV=(o,k)=>o[k.toLowerCase()]||k;
+const FIXES=[[B('(soy|estoy) (\\d+) años'),(m,v,n)=>'tengo '+n+' años','年齡用 tener'],
+[B('(estoy|está) (profesor|profesora|estudiante|médico|ingeniero|taiwanés|taiwanesa)'),(m,v,p)=>(v.toLowerCase()==='estoy'?'soy ':'es ')+p,'職業／國籍用 ser'],
+[B('(soy|es) (cansado|cansada|contento|contenta|enfermo|enferma|triste|nervioso)'),(m,v,p)=>(v.toLowerCase()==='soy'?'estoy ':'está ')+p,'暫時狀態用 estar'],
+[B('(soy|estoy) (hambre|sed|frío|calor|sueño|miedo)'),(m,v,p)=>'tengo '+p,'餓／渴／冷／熱用 tener'],
+[B('la (problema|día|mapa|idioma|sistema|tema|programa)'),(m,n)=>'el '+n,'名詞陰陽性'],
+[B('el (mano|foto|moto|noche|leche|ciudad|casa|camiseta|tarde|mesa)'),(m,n)=>'la '+n,'名詞陰陽性'],
+[B('(los|las|unos|unas) (amigo|amiga|libro|hermano|perro|gato|casa)'),(m,a,n)=>{const f=/^(las|unas)$/i.test(a);return a+' '+(f&&/o$/.test(n)?n.slice(0,-1)+'as':!f&&/a$/.test(n)&&n!=='casa'?n.slice(0,-1)+'os':n+'s')},'複數名詞加 s'],
+[B('mis (amigo|padre|hermano|casa|libro)'),(m,n)=>'mi '+n,'mi／mis 單複數'],[B('mi (amigos|padres|hermanos|casas|libros)'),(m,n)=>'mis '+n,'mi／mis 單複數'],
+[B('tú (soy|estoy|tengo|quiero|vivo)'),(m,v)=>'tú '+MAPV({soy:'eres',estoy:'estás',tengo:'tienes',quiero:'quieres',vivo:'vives'},v),'人稱變位'],
+[B('yo (eres|estás|tienes|quieres|es|tiene|quiere)'),(m,v)=>'yo '+MAPV({eres:'soy',estás:'estoy',tienes:'tengo',quieres:'quiero',es:'soy',tiene:'tengo',quiere:'quiero'},v),'人稱變位'],
+[B('(él|ella|usted) (tengo|quiero|soy|estoy|tienes|quieres|eres|vivo)'),(m,p,v)=>p+' '+MAPV({tengo:'tiene',quiero:'quiere',soy:'es',estoy:'está',tienes:'tiene',quieres:'quiere',eres:'es',vivo:'vive'},v),'人稱變位'],
+[B('me gusto'),()=>'me gusta','gustar 用法'],[B('me gustan (\\w+(?:ar|er|ir))'),(m,v)=>'me gusta '+v,'gustar 後接原形用單數'],
+[B('voy (?!a |al )(\\w+(?:ar|er|ir))'),(m,v)=>'voy a '+v,'ir + a + 原形'],
+[B('hay (el|la|los|las)'),(m,a)=>'hay '+MAPV({el:'un',la:'una',los:'unos',las:'unas'},a),'hay 後用不定冠詞'],
+[B('(?:le|les) (lo|la|los|las)'),(m,a)=>'se '+a,'le/les + lo → se lo'],[B('soy de acuerdo'),()=>'estoy de acuerdo','固定說法 estar de acuerdo'],[B('muy mucho'),()=>'mucho','muy 與 mucho 不連用']];
+const RULES=FIXES.map(f=>[f[0],f[2]]);
+const pick=a=>a[Math.floor(Math.random()*a.length)],GEN_R=['porque es importante para mí','porque me ayuda mucho','porque me interesa bastante'];
+const KR=`cafe,te=,chocolate;porque me da energía por la mañana#porque me ayuda a despertarme#porque me relaja después de comer;r
+comid,cocin,comer,cenar,desayun,almorz;porque tengo hambre y me apetece mucho#porque me gusta comer bien#porque así tengo energía para todo el día;r
+restaurante,bar=;porque me gusta probar cosas nuevas#porque allí se come muy bien;r
+pizza,pasta,arroz,taco,tortilla,paella,ensalada,sopa;porque me apetece mucho hoy#porque siempre pido lo mismo y me gusta;r
+fruta,verdura,agua,zumo,leche;porque es bueno para la salud#porque quiero comer más sano;r
+cerveza,vino,bebida,beber;porque hace calor y tengo sed#porque me gusta tomar algo con mis amigos;r
+deporte,futbol,baloncesto,tenis,correr,gimnasio,yoga;porque me ayuda a relajarme y a estar sano#porque así me siento con más energía;r
+nad,piscina,natacion;porque me gusta el agua y hace calor#porque es un buen ejercicio;r
+viaj,vacacion,turismo;porque me gusta conocer lugares nuevos#porque necesito descansar del trabajo;r
+playa,mar=,costa;porque me encanta el sol y el agua#porque allí me relajo mucho;r
+montan,campo=,naturaleza,excursion;porque necesito aire fresco#porque me gusta caminar y estar en la naturaleza;r
+hotel,hostal,reserva;porque quiero un lugar cómodo y cerca del centro#porque es importante descansar bien;r
+avion,aeropuerto,vuelo;porque es la forma más rápida de viajar#porque tengo poco tiempo;r
+tren,metro,autobus,bus=,taxi,transporte;porque es rápido y barato#porque así no tengo que conducir;r
+coche,conducir,bicicleta,moto=;porque me da libertad#porque es más cómodo para mí;r
+leer,libro,novela,revista;porque aprendo mucho vocabulario#porque me ayuda a relajarme;r
+music,cant,bail,concierto,guitarra,piano;porque me pone de buen humor#porque me ayuda a olvidar el estrés;r
+pelicula,cine=,serie,television,tele=,netflix;porque así puedo olvidar el estrés#porque me gusta pasar tiempo con mis amigos;r
+videojuego,juego=,jugar,jugamos;porque me divierte mucho#porque puedo jugar con mis amigos;r
+foto,fotograf,camara;porque me gusta guardar buenos recuerdos#porque me ayuda a ver las cosas de otra manera;r
+pint,dibuj,arte=,museo;porque me ayuda a usar la imaginación#porque me gusta aprender cosas nuevas;r
+movil,telefono,app=,aplicacion,internet,redes,instagram,ordenador;porque es muy útil para mi vida diaria#porque así hablo con mi familia y mis amigos;r
+trabaj,oficina,empresa,jefe;porque es interesante y aprendo cada día#porque me gusta ayudar a la gente;r
+estudi,universidad,examen,clase,escuela,colegio,profesor;porque quiero aprender más#porque es importante para mi futuro;r
+espanol,idioma,ingles,chino,aprend;porque quiero viajar a España algún día#porque me gusta hablar con gente de otros países;r
+famil,padres,madre,padre,abuel,primo,tio,tia;porque pasamos mucho tiempo juntos#porque son muy importantes para mí;r
+herman,hij,ninos,bebe;porque me divierto mucho con ellos#porque siempre nos ayudamos;r
+amig,companer,vecin;porque siempre nos reímos juntos#porque me ayudan cuando lo necesito;r
+novio,novia,pareja,boda;porque nos llevamos muy bien#porque compartimos muchas cosas;r
+casa,piso,apartamento,habitacion,cuarto,salon,sala=;porque me siento muy bien allí#porque aquí puedo descansar;r
+cocina=,bano,jardin,balcon,terraza;porque paso mucho tiempo allí#porque me gusta tener espacio;r
+ciudad,barrio,centro,calle;porque hay muchas cosas que hacer#porque hay muchos restaurantes y parques;r
+pueblo,vivir,vivo,vivimos;porque me gusta la vida tranquila#porque todo está cerca;r
+supermercado,mercado,tienda,compr;porque necesito comprar cosas para la semana#porque allí encuentro buenos precios;r
+ropa,camiseta,pantalon,zapato,chaqueta,vestido;porque me gusta y el precio es bueno#porque lo necesito para el trabajo;r
+precio,cuesta,caro,barato,dinero,pagar,tarjeta,efectivo;porque quiero gastar poco dinero#porque es un buen precio;r
+regalo,cumpleanos,fiesta,navidad,celebr;porque quiero hacer feliz a una persona especial#porque es un día importante para mí;r
+calor,sol=,verano;porque me gusta salir cuando hace buen tiempo#porque tengo más tiempo libre;r
+frio,invierno,nieve,lluev,lluvia,llueve;porque prefiero quedarme en casa#porque necesito llevar ropa de abrigo;r
+tiempo libre,fin de semana,domingo,sabado;porque no tengo que trabajar#porque puedo descansar y estar con mi familia;r
+duele,dolor,cabeza,estomago,garganta,espalda,fiebre,tos=,resfriado,gripe,enferm;desde ayer por la tarde#desde hace dos días#desde esta mañana;t
+medic,pastilla,farmacia,hospital,doctor,cita;porque quiero mejorar pronto#porque necesito descansar y cuidarme;r
+dorm,sueno,cansad,descansar;porque ayer me acosté muy tarde#porque necesito más horas de sueño;r
+despert,manana=,temprano;porque tengo mucho trabajo#porque me gusta empezar el día con tiempo;r
+noche;porque después del trabajo estoy libre#porque me gusta descansar por la noche;r
+duch,limpiar,lavar;porque me siento mejor después#porque es parte de mi rutina diaria;r
+pasear,paseo,caminar,andar,parque;porque me ayuda a pensar#porque hace buen tiempo;r
+llegar,salir,tarde=,prisa;porque tengo poco tiempo#porque tengo una cita importante;r
+reservar,mesa=,reunion;porque quiero tener todo preparado#porque somos varias personas;r
+profesion,ingeniero,medico,profesora,abogado,estudiante;porque me gusta ayudar a los demás#porque quiero tener un buen futuro;r
+taiwan,japon,china,espana,mexico,pais;porque es un lugar especial para mí#porque allí tengo buenos recuerdos;r
+hablo,hablar,idiomas;porque quiero comunicarme mejor#porque es útil para viajar;r
+salud,sano,dieta;porque quiero cuidar mi cuerpo#porque es importante para vivir bien;r
+limpio,ordenado,sucio;porque me gusta tener todo en orden#porque así me siento mejor en casa;r
+mascota,perro,gato,animal;porque me hacen compañía#porque me encantan los animales;r
+curso,practic;porque la práctica es la mejor forma de aprender#porque quiero mejorar poco a poco;r
+ahorr;porque quiero comprar algo especial#porque es importante pensar en el futuro;r
+gusta,encanta,divierte;porque me hace feliz#porque me divierte mucho#porque lo disfruto mucho;r
+necesito,quiero,busco;porque lo necesito para esta semana#porque es importante para mí;r`.split('\n').map(l=>{const[k,v,t]=l.split(';');return[new RegExp('(^| )('+k.split(',').map(x=>x.endsWith('=')?x.slice(0,-1)+'( |$)':x).join('|')+')'),v.split('#'),t]});
+const NEGW=/(^| )(no|nunca|jamas|mal|malo|mala|caro|cara|caros|caras|dificil|cansado|cansada|dolor|duele|enfermo|enferma|problema|odio|triste|tampoco|fiebre)( |$)/;
+const CONN=/(^|[ .,])(ademas|tambien|por eso|por desgracia|tampoco)( |,|$)/;
+const CLS='accccbddeeeeeffgggggghiiijjjjllmlnnnnoopqqqpplgfpimidlkinLN';
+/* 語意錨點：每個語意群專屬延伸句。欄位：正面延伸｜負面延伸｜負面原因 */
+const XT={};`a|Además, lo tomo sin azúcar y casi siempre por la mañana#También suelo tomar uno después de comer|Por eso, ahora bebo menos café y prefiero un té#Tampoco tomo café por la noche|porque me pone muy nervioso#porque me sienta mal en el estómago
+b|Además, solo bebo los fines de semana con mis amigos#También me gusta pedir algo para compartir|Por eso, prefiero beber agua cuando salgo#Tampoco bebo si tengo que conducir|porque me sienta mal#porque no me gusta el sabor
+c|Además, suelo comer en casa con mi familia#También me gusta probar platos nuevos los fines de semana|Por eso, prefiero comer algo sencillo en casa#Tampoco suelo pedir comida a domicilio|porque no tengo mucha hambre#porque la comida no está muy buena
+d|Además, entreno tres veces por semana#También intento dormir ocho horas cada noche|Por eso, ahora hago poco ejercicio#Tampoco puedo entrenar esta semana|porque no tengo energía#porque me duele un poco el cuerpo
+e|Además, prefiero viajar en verano con mis amigos#También siempre reservo el hotel con tiempo|Por eso, este año voy a quedarme en casa#Tampoco tengo mucho dinero para viajar|porque los viajes son muy caros#porque no tengo vacaciones
+f|Además, suelo salir de casa con tiempo#También prefiero ir sin prisa|Por desgracia, a veces llego tarde#Tampoco es fácil encontrar sitio|porque siempre hay mucha gente#porque el tráfico es muy lento
+g|Además, lo hago casi todos los fines de semana#También me gusta hablar de ello con mis amigos|Por eso, ahora lo hago muy poco#Tampoco tengo mucho tiempo libre|porque no me divierte mucho#porque estoy muy ocupado
+h|Además, lo uso todos los días para hablar con mi familia#También aprendo cosas nuevas con él|Por eso, ahora lo uso menos#Tampoco lo miro por la noche|porque pierdo mucho tiempo#porque no funciona bien
+i|Además, me levanto temprano para llegar a tiempo#También quiero mejorar un poco cada día|Por eso, necesito descansar más#Tampoco tengo mucho tiempo para mí|porque tengo demasiado trabajo#porque es muy difícil para mí
+j|Además, nos vemos casi todas las semanas#También hablamos por teléfono casi todos los días|Por eso, ahora nos vemos menos#Tampoco hablamos mucho últimamente|porque vivimos muy lejos#porque tengo poco tiempo
+k|Además, paso mucho tiempo jugando en casa con los animales#También salgo a pasear con ellos todos los días|Por eso, ahora no puedo tener uno en casa#Tampoco tengo tiempo para cuidarlos|porque mi piso es muy pequeño#porque me da alergia
+l|Además, es un sitio tranquilo y tengo todo cerca#También los fines de semana limpio y ordeno todo|Por eso, quiero cambiar de casa#Tampoco tengo mucho espacio|porque hace mucho ruido#porque es pequeño y está sucio
+m|Además, hay muchos parques y restaurantes#También es fácil ir a todos los sitios|Por eso, no me gusta vivir allí#Tampoco hay mucho que hacer|porque hay mucho ruido#porque todo es muy caro
+n|Además, siempre comparo los precios antes de comprar#También prefiero pagar con tarjeta|Por eso, hoy no voy a comprar nada#Tampoco tengo dinero para gastar|porque es muy caro#porque no tengo dinero
+o|Además, salgo más a la calle#También llevo ropa cómoda|Por eso, prefiero quedarme en casa#Tampoco quiero salir mucho|porque el tiempo es muy malo#porque no me gusta ese tiempo
+p|Además, intento descansar un poco#También me gusta hacer planes con mi familia|Por eso, no tengo tiempo para descansar#Tampoco puedo hacer planes|porque estoy muy ocupado#porque tengo mucho trabajo
+q|Además, voy a descansar y a comer sano#También quiero dormir más horas|Por eso, voy a descansar y a beber mucha agua#Por desgracia, hoy no puedo ir al trabajo#Tampoco he tomado ninguna medicina todavía|porque no me siento bien#porque no he dormido bien
+L|Además, lo hago casi todos los días por la tarde#También lo hago siempre con mis amigos|Por eso, casi nunca lo hago#Tampoco lo hago con mis amigos|porque me aburre mucho#porque no me divierte
+N|Además, es para esta semana y tengo bastante prisa#También quiero tenerlo cuanto antes|Por eso, es muy urgente#Por desgracia, no tengo mucho tiempo|porque lo necesito ahora mismo#porque no tengo otra opción
+M|Además, es para esta semana#También quiero tenerlo pronto|Por eso, no voy a comprarlo ahora#Tampoco tengo prisa|porque ya tengo uno en casa#porque casi no lo uso
+z|Además, lo hago casi todos los días#También es muy importante para mí|Por eso, no estoy muy contento#Por desgracia, no tengo mucho tiempo|porque es un poco difícil para mí#porque tengo poco tiempo`.split('\n').forEach(l=>{const p=l.split('|');XT[p[0]]=p.slice(1).map(x=>x.split('#'))});
+function upgrade(text){const t=text.trim().replace(/\s+/g,' ');if(!t||/\?\s*$|^¿/.test(t))return null;const notes=[];let fx=t;
+ FIXES.forEach(f=>{const n=fx.replace(f[0],f[1]);if(n!==fx){if(!notes.includes(f[2]))notes.push(f[2]);fx=n}});
+ let base=fx.replace(/[.!?]+$/,'');base=base.charAt(0).toUpperCase()+base.slice(1);const fix=cap(base),tips=[];
+ const W=base.split(/\s+/).length,hasC=B('porque|además|pero|por ejemplo|entonces|también|aunque|sin embargo').test(base);
+ if(/^me (gusta|gustan) (?!mucho)/i.test(base)){base=base.replace(/^(me \w+) /i,'$1 mucho ');tips.push('加入 mucho 等程度副詞，語氣更自然')}
+ let up=base;const nt=norm(base),neg=NEGW.test(nt),hard=/(^| )(no|nunca|jamas)( |$)/.test(nt);
+ /* 人稱／時態：非第一人稱或過去式 → 不自動延伸，避免「Mi madre trabaja… Además, me levanto temprano」 */
+ const past=/(^| )(ayer|anoche|pasad[oa]|antes|fui|fue|fuimos|comi|comimos|estuve|tuve|hice|vi|compre|viaje|visite|era|estaba|tenia|vivia|hizo|me levante|me acoste)( |$)/.test(nt),
+  third=/^(el|ella|ellos|ellas|mi|mis|su|sus|los|las|un|una|usted|ustedes|tu|tus|nuestro|nuestra)( |$)/.test(nt),
+  desc=third||/^(tengo|hay|soy|estoy|vivo|me llamo|tiene|es|esta)( |$)/.test(nt),
+  sing=/(^| )(mi|el|la|un|una) (madre|padre|hermano|hermana|amigo|amiga|perro|gato|novio|novia|abuelo|abuela|tio|tia|primo|prima|hijo|hija)( |$)/.test(nt),
+  sg=t=>sing?t.replace(/\bson\b/,'es').replace('muy importantes','muy importante').replace('me hacen','me hace').replace('me ayudan','me ayuda'):t;
+ /* 語意錨點：健康／價格詞優先；其餘取「最早出現」的內容語意群，通用群（gusta／necesito）只作兜底 */
+ let gi=/(^| )(duel\w*|dolor|enferm\w*|fiebre|gripe|resfriado)/.test(nt)?40:/(^| )(caro|cara|caros|caras)( |$)/.test(nt)?35:-1;
+ if(gi<0){let bp=1e9;KR.forEach((k,i)=>{if(i>=57)return;const m=k[0].exec(nt);if(m&&m.index<bp){bp=m.index;gi=i}});if(gi<0)gi=KR.findIndex((k,i)=>i>=57&&k[0].test(nt))}
+ const r=gi>=0?KR[gi]:null,c=gi>=0?CLS[gi]:'z';
+ const x=XT[c==='N'&&neg&&/(^| )no (necesito|quiero|busco)/.test(nt)?'M':c]||XT.z;
+ /* 描述性句子（擁有／身分／存在）不是行為，不加 porque */
+ if(!hasC&&!desc){if(r&&r[2]==='t'){up+=' '+pick(r[1]);tips.unshift('補上時間資訊，讓描述更具體')}else{up+=', '+sg(neg?pick(x[2]):r?pick(r[1]):pick(GEN_R));tips.unshift('用 porque 補充原因'+(neg?'（偵測到負面語氣，原因子句改用負面情境專屬句）':'，避免只講單句，直接提升連貫性分數'))}}
+ if(CONN.test(norm(up))||past||third){up+=/[.!?]$/.test(up)?'':'.';if((past||third)&&!CONN.test(norm(up)))tips.push('主語不是「我」或為過去式，為避免人稱／時態錯亂，未自動延伸；可自己補一句時間或細節')}
+ else{const pool=(neg?x[1]:x[0]).filter(t=>hard||!/^Tampoco/.test(t)),ext=pick(pool.length?pool:x[neg?1:0]);up+='. '+ext+'.';tips.push('用 '+ext.split(',')[0]+' 延伸（'+(neg?'負面／抱怨語氣，改用因果或負向連接詞':'正面／中性語氣，用正向疊加')+'，且只圍繞同一語意群）')}
+ if(notes.length)tips.unshift('先修正：'+notes.join('、'));
+ return{fix,changed:notes,up,tip:tips.join('；')+'。',short:W<6,neg}}
+const upHTML=(text,rr)=>{const r=rr||upgrade(text);if(!r)return'<div>這是問句，不需要升級；試著用完整句回答對方的問題。</div>';
+ return `<b>文法微調版</b><div class="es">${esc(r.fix)}</div><div class="mut">${r.ai?'':r.changed.length?'已修正：'+esc(r.changed.join('、')):'沒有偵測到基本錯誤，維持原句。'}</div><div class="acts"><button data-say="${esc(r.fix)}" data-rate=".85">${IC.spk}發音</button><button data-drill="${esc(r.fix)}">跟讀此句</button></div>
+ <div style="margin-top:8px"><b>A2 升級版</b></div><div class="es">${esc(r.up)}</div><div class="acts"><button data-say="${esc(r.up)}" data-rate=".85">${IC.spk}發音</button><button data-drill="${esc(r.up)}">跟讀升級版</button></div><div class="drillbox"></div>
+ <div style="margin-top:6px">${esc(r.tip)}</div><div class="mut">${r.ai?'🧠 本地 AI 生成（離線、零費用），請依實際想表達的意思調整。':'規則式改寫，請依你實際想表達的意思調整。'}</div>`};
+
+function postReport(){const c=$('#ex3'),items=ex.tr.map(x=>({a:x.a,w:x.a.split(/\s+/).length,r:upgrade(x.a)})).filter(x=>x.r&&x.a.trim()).sort((p,q)=>p.w-q.w).slice(0,3);
+ if(!items.length||!c)return;const h='<h3 style="font-size:16px;margin-top:14px">考後檢討：句子升級（我的原句 vs 升級版）</h3>'+items.map(x=>`<div class="fb" style="max-width:100%;margin-top:8px"><div class="mut">我的原句</div><div class="es">${esc(x.a)}</div><div class="mut" style="margin-top:6px">升級版答案</div><div class="es">${esc(x.r.up)}</div><div class="acts"><button data-say="${esc(x.r.up)}" data-rate=".85">${IC.spk}發音</button><button data-drill="${esc(x.r.up)}">跟讀升級版</button></div><div class="drillbox"></div><div style="margin-top:4px">${esc(x.r.tip)}</div></div>`).join('')+'<div class="mut" style="margin-top:6px">這是依最短的回答挑出來的規則式改寫，請依實際意思調整。</div>';
+ const b=c.querySelector('button.btn.pri');b?b.insertAdjacentHTML('beforebegin',h):c.insertAdjacentHTML('beforeend',h)}
+
+/* 跟讀升級版：自動聆聽並比對，顯示準確率（不計入對話輪次） */
+function drill(btn){const tg=btn.dataset.drill,card=btn.closest('.fb'),box=card&&card.querySelector('.drillbox');if(!box)return;
+ if(!SR)return toast('此瀏覽器不支援語音辨識（建議 Chrome / Safari）');
+ speechSynthesis.cancel();sid++;try{rec&&rec.abort()}catch(e){}
+ box.innerHTML='<div class="mut">聆聽中，請唸出：'+esc(tg)+'</div>';let got='',err=false;const r=new SR();rec=r;r.lang=accent;r.interimResults=false;r.continuous=false;
+ r.onresult=e=>{got=e.results[0][0].transcript};
+ r.onerror=e=>{err=true;box.innerHTML='<div class="mut">'+(e.error==='not-allowed'?'請允許麥克風權限':'沒有聽到聲音，請再試一次')+'</div>'};
+ r.onend=()=>{if(err)return;if(!got){box.innerHTML='<div class="mut">沒有聽到聲音，請再試一次</div>';return}
+  const d=diff(tg,got),m=d.pct>=90?'很棒，接近母語節奏':d.pct>=70?'不錯，再練紅字部分':'建議先慢速聽一遍再跟讀';
+  box.innerHTML=`<div class="rep" style="margin-top:6px;max-width:100%"><b>發音準確率 ${d.pct}%</b> <span class="mut">${m}</span><div class="es">${d.html}</div>${d.miss?`<div class="mut">實際聽成：${esc(d.heard)}</div>`:''}<div class="acts"><button data-say="${esc(tg)}" data-rate=".6">${IC.spk}慢速聽</button><button data-drill="${esc(tg)}">再跟讀一次</button></div></div>`};
+ try{r.start()}catch(e){}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-drill]');if(b)drill(b)});
+
+
+
+function startTot(){clearInterval(ex.tott);ex.tot=ex.lvl==='A2'?720:600;const e=$('#tot');e.style.color='';e.textContent=fmt(ex.tot);
+ ex.tott=setInterval(()=>{if($('#ex2').classList.contains('hide'))return clearInterval(ex.tott);ex.tot--;e.textContent=ex.tot>=0?fmt(ex.tot):'-'+fmt(-ex.tot);
+  if(ex.tot===60)toast('剩 1 分鐘');if(ex.tot===0){e.style.color='var(--bad)';toast('時間到：正式考試會在此時結束')}},1000)}
+
+
+
+/* ===== 離線 AI 大腦（Transformers.js，本機執行，免 Key） ===== */
+const AI={ready:false,loading:false,gen:null,dev:'',files:{},msg:'',pct:null,model:'onnx-community/Qwen2.5-0.5B-Instruct',lib:'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.0'};
+AI.ui=(t,p)=>{AI.msg=t||'';AI.pct=p==null?null:p;document.querySelectorAll('.aistat').forEach(e=>e.innerHTML=AI.msg+(AI.pct!=null?'<div class="aibar"><i style="width:'+AI.pct+'%"></i></div>':''))};
+AI.btn=()=>document.querySelectorAll('.aibtn').forEach(b=>{b.disabled=AI.loading||AI.ready;b.textContent=AI.ready?'🧠 本地 AI 已啟用':AI.loading?'🧠 載入中…':(localStorage.getItem('habla_ai')?'🧠 載入離線 AI（已快取）':'🧠 開啟離線 AI')});
+AI.load=async()=>{if(AI.ready||AI.loading)return;AI.loading=true;AI.btn();AI.ui('準備載入模型…（首次約 400MB）',0);
+ try{const T=await import(AI.lib);let gpu=false;try{gpu=!!(navigator.gpu&&await navigator.gpu.requestAdapter())}catch(e){}
+  let sawP=false;const cb=d=>{if(d.status==='progress'&&d.total){sawP=true;AI.files[d.file]=[d.loaded,d.total];let L=0,Tt=0;for(const k in AI.files){L+=AI.files[k][0];Tt+=AI.files[k][1]}const p=Math.round(L/Tt*100);AI.ui('下載中 '+p+'%（'+(L/1048576).toFixed(0)+' / '+(Tt/1048576).toFixed(0)+' MB）',p)}else if(d.status==='initiate'&&!sawP)AI.ui('檢查快取／連線中…（'+(gpu?'WebGPU':'WASM')+'）',null)};
+  const mk=(device,dtype)=>T.pipeline('text-generation',AI.model,{device,dtype,progress_callback:cb});
+  try{AI.gen=await mk(gpu?'webgpu':'wasm',gpu?'q4f16':'q4');AI.dev=gpu?'WebGPU':'WASM'}catch(e){if(!gpu)throw e;AI.files={};AI.gen=await mk('wasm','q4');AI.dev='WASM（WebGPU 失敗，已降級）'}
+  AI.ready=true;localStorage.setItem('habla_ai','1');AI.ui('✅ 本地 AI 已就緒（'+AI.dev+'；已快取於瀏覽器，下次免下載）'+(sawP?'':'（本次由快取載入）'));toast('本地 AI 已就緒')}
+ catch(e){AI.ui('❌ 載入失敗，維持規則引擎：'+esc(e.message||e));toast('離線 AI 載入失敗，使用規則引擎')}
+ AI.loading=false;AI.btn()};
+AI.ask=async(sys,msgs,max)=>{const o=await AI.gen([{role:'system',content:sys},...msgs],{max_new_tokens:max||200,do_sample:false});let g=o[0].generated_text;if(Array.isArray(g))g=g[g.length-1].content;return g};
+AI.json=s=>{const m=String(s).match(/\{[\s\S]*\}/);if(!m)throw new Error('no json');return JSON.parse(m[0])};
+AI.up=async text=>{const sys='You are a Spanish tutor for DELE A2 students. Scenario: '+(mode==='chat'&&scen?scen.role+' - '+scen.mission:'free talk')+'. Reply with ONLY one JSON object: {"fix":"the student sentence with grammar corrected","up":"upgraded A2 version: same meaning, a bit longer, using porque/además/pero naturally, never change topic","zh":"一句話繁體中文解析"}. Example input: Yo soy cansado. Example output: {"fix":"Estoy cansado.","up":"Estoy cansado porque ayer dormí poco. Además, hoy tengo mucho trabajo.","zh":"暫時狀態要用 estar，不是 ser。"}';
+ const j=AI.json(await AI.ask(sys,[{role:'user',content:text}],220));if(!j.fix||!j.up)throw new Error('bad');return{fix:String(j.fix),up:String(j.up),changed:[],tip:String(j.zh||''),ai:1}};
+async function upHTMLX(text){const q=text.trim();let h;
+ if(AI.ready&&q&&!/\?\s*$|^¿/.test(q)){try{return upHTML(q,await AI.up(q))}catch(e){h=upHTML(q)+'<div class="mut">本地 AI 輸出異常，已改用規則引擎。</div>';return h}}
+ h=upHTML(q);return AI.ready?h:'<div class="acts" style="float:right;margin:0"><button class="aibtn"></button></div>'+h+'<div class="aistat mut"></div>'}
+async function aiChat(text){try{const sys='You are "'+scen.role+'" in a Spanish role-play for A1-A2 learners. Student mission: '+scen.mission+'. React to exactly what the student just said and stay on the same topic. Max 25 words, simple present tense, then ask one natural follow-up question. Output ONLY JSON: {"reply":"Spanish","zh":"繁體中文翻譯"}';
+ const h=hist.slice(-4).map(m=>({role:m.role,content:m.content}));const j=AI.json(await AI.ask(sys,[{role:'assistant',content:scen.es},...h,{role:'user',content:text}],120));
+ if(!j.reply)throw new Error('bad');const m=mock(text);m.ai_reply=String(j.reply);m.ai_translation=String(j.zh||'');return m}catch(e){return mock(text)}}
+async function aiFollow(text){if(!AI.ready)return;const p=ex.plan[ex.turn];if(!p||p.c||ex.turn===ex.plan.length-1)return;toast('本地 AI 依你的回答生成追問…');
+ try{const j=AI.json(await AI.ask('You are a friendly DELE '+ex.lvl+' examiner. Task '+p.t+'. Ask ONE short follow-up question in simple Spanish (max 20 words) about something the candidate actually said; do not change topic. Output ONLY JSON: {"reply":"Spanish question","zh":"繁體中文翻譯"}',[{role:'assistant',content:ex.q},{role:'user',content:text}],100));
+  if(j.reply&&/[?¿]/.test(j.reply)){p.s=[String(j.reply),String(j.zh||'')];p.src='本地 AI 依你的回答生成'}}catch(e){}}
+document.addEventListener('click',e=>{if(e.target.closest('.aibtn'))AI.load()});AI.btn();
+/* 黃金測試：網址尾端加 #test 重新整理即可執行，改規則庫後用來防止退化 */
+const ADD=/Además|También/,NEGC=/Por eso|Por desgracia|Tampoco/;
+const GOLD=[['Me gusta el café',r=>!r.neg&&ADD.test(r.up)],['No me gusta el café',r=>r.neg&&NEGC.test(r.up)&&!ADD.test(r.up)],['Me duele la cabeza y no puedo trabajar',r=>r.neg&&!ADD.test(r.up)],['Me encanta la música',r=>!/encanta mucho/.test(r.up)],['Mi madre trabaja mucho',r=>!ADD.test(r.up)&&!NEGC.test(r.up)],['Ayer fui al cine',r=>!ADD.test(r.up)],['Tengo un perro',r=>!/porque/.test(r.up)&&ADD.test(r.up)],['Hablo con mi madre',r=>!/son muy/.test(r.up)],['Hoy estoy muy cansado',r=>r.neg&&!ADD.test(r.up)],['No quiero comprar ropa',r=>NEGC.test(r.up)&&!ADD.test(r.up)],['Necesito un hotel',r=>/porque/.test(r.up)&&ADD.test(r.up)],['Soy cansado',r=>/^Estoy cansado/.test(r.fix)],['Voy a la playa porque me gusta el sol',r=>ADD.test(r.up)&&!/porque.*porque/.test(r.up)],['No tengo dinero',r=>r.neg&&!ADD.test(r.up)],['Me gusta jugar al fútbol',r=>!r.neg&&ADD.test(r.up)]];
+if(location.hash==='#test'){const out=[];GOLD.forEach(([t,f])=>{let ok=true,ex_='';for(let k=0;k<20;k++){const r=upgrade(t);if(!f(r)){ok=false;ex_=r.up;break}}out.push((ok?'✅ ':'❌ ')+t+(ok?'':' → '+ex_))});
+ console.log(out.join('\n'));document.body.insertAdjacentHTML('afterbegin','<pre style="white-space:pre-wrap;background:#fff;border:2px solid var(--sage);padding:10px;margin:8px;font-size:12px">黃金測試 '+out.filter(x=>x[0]==='✅').length+'/'+out.length+'\n'+esc(out.join('\n'))+'</pre>')}
+</script>
+</body></html>
